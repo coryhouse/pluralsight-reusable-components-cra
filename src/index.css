@@ -1,5 +1,46 @@
 body {
-  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666666;
+}
+
+.example-wrapper {
+  border: solid 1px #d3d3d3;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f4f6f9;
+}
+
+.example-wrapper p:first-of-type {
+   margin-top: 0;
+}
+
+table.props tr td:last-of-type {
+  text-align: center;
+}
+
+.example-wrapper p:last-of-type {
+   margin-bottom: 0;
+}
+
+th, td {
+  text-align: left;
+    padding: 5px;
+}
+
+ul {
+  list-style-type: none;
   padding: 0;
-  font-family: sans-serif;
+}
+
+#navigation {
+  float: left;
+  width: 175px;
+}
+
+a:visited {
+  color: #666666;
+}
+
+#page-wrapper {
+  float: 'left';
 }
