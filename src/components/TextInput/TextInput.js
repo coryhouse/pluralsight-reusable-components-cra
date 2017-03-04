@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 /**
  * Abstraction over text input to enforce consistency in validation and labels
  */
-const TextInput = ({name, label, isRequired, onChange, placeholder, value, error, ...props}) => {
+const TextInput = ({name, label, required, onChange, placeholder, value, error, ...props}) => {
   let inputStyle = {};
   if (error && error.length > 0) {
     inputStyle = {
@@ -13,7 +13,7 @@ const TextInput = ({name, label, isRequired, onChange, placeholder, value, error
 
   return (
     <div className="fieldset">
-      <label htmlFor={name}>{label}</label>{ isRequired && "*" }
+      <label htmlFor={name}>{label}</label> { required && "*" }
       <div className="field">
         <input
           type="text"
@@ -42,7 +42,7 @@ TextInput.propTypes = {
   /**
    * Mark label with asterisk if set to true
    */
-  isRequired: PropTypes.bool,
+  required: PropTypes.bool,
   /**
    * Function to call onChange
    */
