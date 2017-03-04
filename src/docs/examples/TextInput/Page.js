@@ -8,7 +8,7 @@ import ExampleRequiredCode from '!raw-loader!./ExampleRequired';
 const TextInputPage = () => {
   return (
     <ComponentPage
-      name="ExampleRequired"
+      name="TextInput"
       code={code}
       examples={[
         <Example key="ExampleRequired" code={ExampleRequiredCode}><ExampleRequired /></Example>
