@@ -42,5 +42,9 @@ a:visited {
 }
 
 #page-wrapper {
-  float: 'left';
+  margin-left: 185px;
+}
+
+.clear {
+  clear: both;
 }

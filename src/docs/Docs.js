@@ -1,7 +1,7 @@
 import React from 'react';
 import ProgressBarPage from './examples/ProgressBar/Page';
 import PasswordInputPage from './examples/PasswordInput/Page';
-import TextInput from './examples/TextInput/Page';
+import TextInputPage from './examples/TextInput/Page';
 
 export default class Docs extends React.Component {
   constructor(props) {
@@ -30,9 +30,9 @@ export default class Docs extends React.Component {
       case 'ProgressBar':
         return <ProgressBarPage/>;
       case 'TextInput':
-        return <TextInput/>;
+        return <TextInputPage/>;
       default:
-        throw('Unknown page ' + this.state.page);
+        throw new Error('Unknown page ' + this.state.page);
     }
   }
 
@@ -53,7 +53,7 @@ export default class Docs extends React.Component {
           {this.getPage()}
         </div>
 
-        <div style={{clear:'both'}}></div>
+        <div className="clear"></div>
       </div>
     )
   }
