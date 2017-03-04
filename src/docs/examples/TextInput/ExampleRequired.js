@@ -4,8 +4,18 @@ import TextInput from 'ps-ui/TextInput';
 /**
  * Required field
  */
-const ExampleRequired = () => {
-  return <TextInput label="First Name" name="firstname" required />
-}
+export default class ExampleRequired extends React.Component {
+  onChange = () => {
 
-export default ExampleRequired;
+  }
+
+  render() {
+    return (
+      <TextInput
+        label="First Name"
+        name="firstname"
+        onChange={this.onChange}
+        required />
+    )
+  }
+}
