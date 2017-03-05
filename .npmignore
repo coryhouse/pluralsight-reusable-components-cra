@@ -6,3 +6,15 @@ src
 
 #Documentation build
 build
+
+#Create react app config
+config
+
+#Create react app scripts
+scripts
+
+#The documentation build
+docs
+
+#Public dir for docs
+public
