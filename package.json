@@ -1,6 +1,6 @@
 {
   "name": "pluralsight-reusable-components-cra",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./lib",
   "author": {
     "name": "Cory House",
@@ -65,9 +65,7 @@
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=0.14.0",
     "react-dom": ">=0.14.0"
