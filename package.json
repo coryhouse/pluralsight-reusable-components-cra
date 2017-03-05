@@ -1,6 +1,6 @@
 {
   "name": "pluralsight-reusable-components-cra",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./lib",
   "author": {
     "name": "Cory House",
