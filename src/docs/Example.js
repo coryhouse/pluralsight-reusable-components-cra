@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {parse} from 'react-docgen';
+import Highlight from 'react-highlight';
 
 class Example extends React.Component {
   constructor(props) {
@@ -23,9 +24,9 @@ class Example extends React.Component {
     const info = parse(code);
     return (
       <div className="example-wrapper">
-        <p>
+        <h4>
           {info.description}
-        </p>
+        </h4>
 
         {children}
 
@@ -35,7 +36,7 @@ class Example extends React.Component {
           </a>
         </p>
 
-        {showCode && <pre>{code}</pre>}
+        {showCode && <Highlight className="javascript">{code}</Highlight>}
       </div>
     )
   }

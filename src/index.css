@@ -10,7 +10,7 @@ body {
   background-color: #f4f6f9;
 }
 
-.example-wrapper p:first-of-type {
+.example-wrapper h4:first-of-type {
    margin-top: 0;
 }
 
