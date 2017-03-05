@@ -67,6 +67,10 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
+  "peerDependencies": {
+    "react": ">=0.14.0",
+    "react-dom": ">=0.14.0"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "prebuild:lib": "rimraf lib",
