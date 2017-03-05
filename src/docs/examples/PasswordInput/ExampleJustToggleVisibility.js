@@ -22,7 +22,7 @@ class ExampleJustToggleVisibility extends React.Component {
           value={this.state.password}
           minLength={8}
           maxLength={50}
-          showVisibilityToggle={true}
+          showVisibilityToggle
           {...this.props} />
       </div>
     )

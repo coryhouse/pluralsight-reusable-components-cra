@@ -23,9 +23,9 @@ class ExampleAllFeatures extends React.Component {
           minLength={8}
           maxLength={50}
           placeholder="Enter password"
-          showVisibilityToggle={true}
-          showQuality={true}
-          showTips={true}
+          showVisibilityToggle
+          showQuality
+          showTips
           {...this.props} />
       </div>
     )
