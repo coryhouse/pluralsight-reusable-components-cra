@@ -2,12 +2,15 @@ import React from 'react';
 import ProgressBarPage from './examples/ProgressBar/Page';
 import PasswordInputPage from './examples/PasswordInput/Page';
 import TextInputPage from './examples/TextInput/Page';
+import ExampleJustToggleVisibilityCode from '!raw-loader!./examples/PasswordInput/ExampleJustToggleVisibility';
+import Playground from './Playground';
 
 export default class Docs extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      code: ExampleJustToggleVisibilityCode,
       page: 'ProgressBar',
       pages: [
         'ProgressBar',
@@ -36,6 +39,10 @@ export default class Docs extends React.Component {
     }
   }
 
+  updateCode = (code) => {
+    this.setState({ code });
+  }
+
   render() {
     return (
       <div>
@@ -51,6 +58,9 @@ export default class Docs extends React.Component {
 
         <div id="page-wrapper">
           {this.getPage()}
+
+          {/*<CodeMirror value={this.state.code} onChange={this.updateCode} options={{lineNumbers: false, mode: 'javascript', autoSave: true}} />*/}
+          <Playground ref="playground" />
         </div>
 
         <div className="clear"></div>
