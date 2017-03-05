@@ -1,7 +1,13 @@
 {
   "name": "pluralsight-reusable-components-cra",
   "version": "0.1.0",
-  "private": true,
+  "main": "./lib",
+  "author": {
+    "name": "Cory House",
+    "email": "cory@reactjsconsulting.com",
+    "url": "http://reactjsconsulting.com/"
+  },
+  "homepage": "http://coryhouse.github.io/pluralsight-reusable-components-cra",
   "devDependencies": {
     "autoprefixer": "6.7.2",
     "babel-cli": "^6.23.0",
@@ -63,13 +69,16 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "prebuild": "rimraf build",
-    "build": "npm run build:commonjs && npm run build:es && npm run build:umd",
-    "build:commonjs": "cross-env NODE_ENV=release babel ./src/components --out-dir ./build --ignore spec.js",
-    "build:es": "cross-env BABEL_ENV=es babel ./src/components --out-file ./build/index.es.js --ignore spec.js",
-    "build:umd": "cross-env BABEL_ENV=umd babel ./src/components --out-file ./build/index.umd.js --ignore spec.js",
+    "prebuild:lib": "rimraf lib",
+    "build:lib": "npm run build:commonjs && npm run build:es && npm run build:umd",
+    "build:commonjs": "cross-env NODE_ENV=release babel ./src/components --out-dir ./lib --ignore spec.js",
+    "build:es": "cross-env BABEL_ENV=es babel ./src/components --out-file ./lib/index.es.js --ignore spec.js",
+    "build:umd": "cross-env BABEL_ENV=umd babel ./src/components --out-file ./lib/index.umd.js --ignore spec.js",
     "build:docs": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "prepublish": "npm run build",
+    "predeploy:docs": "npm run build:docs",
+    "deploy:docs": "gh-pages -d docs"
   },
   "jest": {
     "collectCoverageFrom": [
