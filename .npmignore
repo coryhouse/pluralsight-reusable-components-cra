@@ -18,3 +18,9 @@ docs
 
 #Public dir for docs
 public
+
+#Editorconfig
+.editorconfig
+
+#Yarn
+yarn.lock
