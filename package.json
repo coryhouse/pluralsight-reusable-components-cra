@@ -1,6 +1,6 @@
 {
   "name": "pluralsight-reusable-components-cra",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "./lib",
   "engines": {
     "node": ">=4.0.0"
