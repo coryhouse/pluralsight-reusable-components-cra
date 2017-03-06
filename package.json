@@ -2,6 +2,9 @@
   "name": "pluralsight-reusable-components-cra",
   "version": "0.1.5",
   "main": "./lib",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "author": {
     "name": "Cory House",
     "email": "cory@reactjsconsulting.com",
