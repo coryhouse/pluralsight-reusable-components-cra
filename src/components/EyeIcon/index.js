@@ -1,1 +1,1 @@
-export EyeIcon from './EyeIcon';
+export {default as EyeIcon} from './EyeIcon';
