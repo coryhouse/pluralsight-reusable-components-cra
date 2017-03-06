@@ -58,3 +58,6 @@ lib
 
 # built docs
 docs
+
+# Webstorm
+.idea
