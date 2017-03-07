@@ -5,7 +5,7 @@ import TextInput from '../TextInput';
 /**
  * User registration form that requires email and password
  */
-const RegistrationForm = ({email, errors, password, onChange, onSubmit}) => {
+const RegistrationForm = ({email, password, errors, onChange, onSubmit}) => {
   return (
     <div>
       <TextInput
