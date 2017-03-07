@@ -36,6 +36,7 @@ ProgressBar.propTypes = {
    * Number from 0 and 100 that represents progress.
    */
   percent: PropTypes.number.isRequired,
+
   /**
    * Bar height in pixels.
    */
