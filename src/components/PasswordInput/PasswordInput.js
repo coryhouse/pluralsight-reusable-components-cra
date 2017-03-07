@@ -46,7 +46,7 @@ class PasswordInput extends React.Component {
     const score = this.calculateScore(containsAlpha, containsNumber, containsSpecialChar);
 
     return (
-      <div className="fieldset">
+      <div>
         <div style={{ float: 'left', width: 165 }}>
           <TextInput
             name={name}
@@ -56,21 +56,23 @@ class PasswordInput extends React.Component {
             onChange={onChange}
             value={password}
             maxLength={maxLength}
-            {...props} />
-          {
-            showVisibilityToggle &&
-            <a
-              href="#"
-              onClick={this.toggleShowPassword}
-              style={{marginLeft: 5}}>
-              <EyeIcon />
-            </a>
-          }
-          <br />
-          {error && <div style={{ color: 'red' }}>{error}</div>}
-          {
-            showQuality && password.length > 0 && <ProgressBar percent={score} />
-          }
+            error={error}
+            required
+            {...props}>
+              {
+                showVisibilityToggle &&
+                <a
+                  href="#"
+                  onClick={this.toggleShowPassword}
+                  style={{marginLeft: 5}}>
+                  <EyeIcon />
+                </a>
+              }
+              <br />
+              {
+                showQuality && password.length > 0 && <ProgressBar percent={score} />
+              }
+          </TextInput>
         </div>
         <div style={{ float: 'left'}}>
           {
