@@ -54,10 +54,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # built component library
-lib
+/lib
 
 # built docs
-docs
+/docs
 
 # Webstorm
 .idea
