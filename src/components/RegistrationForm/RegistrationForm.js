@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
 
+/**
+ * User registration form that requires email and password
+ */
 const RegistrationForm = ({email, errors, password, onChange, onSubmit}) => {
   return (
     <div>
@@ -17,12 +20,13 @@ const RegistrationForm = ({email, errors, password, onChange, onSubmit}) => {
         name="password"
         value={password}
         onChange={onChange}
-        showQuality={true}
-        showTips={true}
-        showVisibilityToggle={true}
+        showQuality
+        showTips
+        showVisibilityToggle
         minLength={7}
         maxLength={50}
         error={errors.password} />
+
       <div>
         <input type="submit" value="Register" onClick={onSubmit} />
       </div>
