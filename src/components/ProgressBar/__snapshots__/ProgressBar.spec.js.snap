@@ -1,0 +1,41 @@
+exports[`ProgressBar should render dark green with 100% 1`] = `
+<div
+  className={undefined}>
+  <div
+    style={
+      Object {
+        "backgroundColor": "green",
+        "height": 5,
+        "width": 100,
+      }
+    } />
+</div>
+`;
+
+exports[`ProgressBar should render light green with 60% 1`] = `
+<div
+  className={undefined}>
+  <div
+    style={
+      Object {
+        "backgroundColor": "lightgreen",
+        "height": 5,
+        "width": 60,
+      }
+    } />
+</div>
+`;
+
+exports[`ProgressBar should render red with 20% 1`] = `
+<div
+  className={undefined}>
+  <div
+    style={
+      Object {
+        "backgroundColor": "red",
+        "height": 5,
+        "width": 20,
+      }
+    } />
+</div>
+`;
