@@ -5,12 +5,7 @@ import styles from './ProgressBar.css';
  * Display progress from 0% to 100%
  */
 class ProgressBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getBarColor = this.getBarColor.bind(this);
-  }
-
-  getBarColor() {
+  getBarColor = () => {
     if (this.props.percent === 100) {
       return 'green';
     } else if (this.props.percent > 50) {
