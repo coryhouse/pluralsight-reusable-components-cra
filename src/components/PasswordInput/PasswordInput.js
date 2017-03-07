@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ProgressBar from '../ProgressBar';
 import EyeIcon from '../EyeIcon';
+import TextInput from '../TextInput';
 
 /**
  * Full-featured Password Input with integrated label, quality tips, and show password toggle.
@@ -36,7 +37,7 @@ class PasswordInput extends React.Component {
   }
 
   render() {
-    const {value, error, name, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
+    const {value, label, error, name, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
     const {showPassword} = this.state;
     const password = value || '';
     const containsAlpha = password.match(/[a-z]/g);
@@ -47,14 +48,14 @@ class PasswordInput extends React.Component {
     return (
       <div className="fieldset">
         <div style={{ float: 'left', width: 165 }}>
-          <label htmlFor={name}>Password</label>
-          <input
+          <TextInput
+            name={name}
+            label={label || 'Password'}
+            placeholder={placeholder}
             type={showPassword ? 'text' : 'password'}
-            placeholder={placeholder || ''}
             onChange={onChange}
             value={password}
             maxLength={maxLength}
-            name={name}
             {...props} />
           {
             showVisibilityToggle &&
@@ -93,42 +94,57 @@ PasswordInput.propTypes = {
    * Password value
    */
   value: PropTypes.string,
+
+  /**
+   * Input label
+   */
+   label: PropTypes.string,
+
   /**
    * Input name
    */
   name: PropTypes.string.isRequired,
+
   /**
    * Function called when password input value changes
    */
   onChange: PropTypes.func.isRequired,
+
   /**
    * Max password length accepted
    */
   maxLength: PropTypes.number.isRequired,
+
   /**
    * Min password length accepted
    */
   minLength: PropTypes.number,
+
   /**
    * Placeholder displayed when no password is entered
    */
   placeholder: PropTypes.string,
+
   /**
    * Set to true to show the toggle for displaying the currently entered password
    */
   showVisibilityToggle: PropTypes.bool,
+
   /**
    * Set to true to display password quality visually via ProgressBar
    */
   showQuality: PropTypes.bool,
+
   /**
    * Validation error to display
    */
   error: PropTypes.string,
+
   /**
    * Set to true to show tips for improving the password
    */
   showTips: PropTypes.bool,
+
   /**
    * Object that overrides the default theme
    */
