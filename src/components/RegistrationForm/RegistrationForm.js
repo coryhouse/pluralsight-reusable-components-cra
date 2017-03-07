@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import PasswordInput from '../PasswordInput/PasswordInput';
-import TextInput from '../TextInput/TextInput';
+import PasswordInput from '../PasswordInput';
+import TextInput from '../TextInput';
 
 const RegistrationForm = ({email, errors, password, onChange, onSubmit}) => {
   return (

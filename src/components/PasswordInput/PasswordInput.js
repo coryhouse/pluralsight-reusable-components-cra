@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import ProgressBar from '../ProgressBar/ProgressBar';
-import EyeIcon from '../EyeIcon/EyeIcon';
+import ProgressBar from '../ProgressBar';
+import EyeIcon from '../EyeIcon';
 
 /**
  * Full-featured Password Input with integrated label, quality tips, and show password toggle.
