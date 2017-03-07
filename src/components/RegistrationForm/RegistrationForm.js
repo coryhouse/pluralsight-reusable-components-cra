@@ -3,7 +3,7 @@ import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
 
 /**
- * User registration form that requires email and password
+ * Registration form that requires email and password
  */
 const RegistrationForm = ({email, password, errors, onChange, onSubmit}) => {
   return (
@@ -14,7 +14,7 @@ const RegistrationForm = ({email, password, errors, onChange, onSubmit}) => {
         label="Email"
         value={email}
         error={errors.email}
-        isRequired />
+        required />
 
       <PasswordInput
         name="password"
@@ -27,9 +27,7 @@ const RegistrationForm = ({email, password, errors, onChange, onSubmit}) => {
         maxLength={50}
         error={errors.password} />
 
-      <div>
-        <input type="submit" value="Register" onClick={onSubmit} />
-      </div>
+      <input type="submit" value="Register" onClick={onSubmit} />
     </div>
   );
 }
