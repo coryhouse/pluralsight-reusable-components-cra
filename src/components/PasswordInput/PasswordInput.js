@@ -19,7 +19,7 @@ class PasswordInput extends React.Component {
     this.setState((prevState) => {
       return { showPassword: !prevState.showPassword };
     });
-    event.preventDefault();
+    if (event) event.preventDefault();
   }
 
   // Default calculateScore method.

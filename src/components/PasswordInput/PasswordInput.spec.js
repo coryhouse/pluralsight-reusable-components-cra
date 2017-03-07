@@ -8,6 +8,7 @@ import {shallow} from 'enzyme';
 // import { shallow } from 'enzyme';
 
 describe('PasswordInput', () => {
+  // Behavioral test
   it('Toggles input type when show/hide password clicked', () => {
     const wrapper = shallow(<PasswordInput
      name="test"
