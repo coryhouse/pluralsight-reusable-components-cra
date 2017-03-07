@@ -35,9 +35,25 @@ RegistrationForm.propTypes = {
    * User email address
    */
   email: PropTypes.string.isRequired,
+
+  /**
+   * User password
+   */
   password: PropTypes.string.isRequired,
+
+  /**
+   * Validation errors - Each error should have its own key
+   */
   errors: PropTypes.object.isRequired,
+
+  /**
+   * Function to call on submit
+   */
   onSubmit: PropTypes.func.isRequired,
+
+  /**
+   * Function to call on input change
+   */
   onChange: PropTypes.func.isRequired
 };
 
