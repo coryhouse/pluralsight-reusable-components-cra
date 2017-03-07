@@ -48,3 +48,7 @@ a:visited {
 .clear {
   clear: both;
 }
+
+.fieldset {
+  margin-bottom: 16px;
+}
