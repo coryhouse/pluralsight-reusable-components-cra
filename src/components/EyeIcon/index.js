@@ -1,1 +1,1 @@
-export default './EyeIcon';
+export {default} from './EyeIcon';
