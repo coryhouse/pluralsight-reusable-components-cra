@@ -2,6 +2,8 @@ import React from 'react';
 import ProgressBarPage from './examples/ProgressBar/Page';
 import PasswordInputPage from './examples/PasswordInput/Page';
 import TextInputPage from './examples/TextInput/Page';
+import RegistrationFormPage from './examples/RegistrationForm/Page';
+import Title from 'react-title-component';
 
 export default class Docs extends React.Component {
   constructor(props) {
@@ -12,7 +14,8 @@ export default class Docs extends React.Component {
       pages: [
         'ProgressBar',
         'PasswordInput',
-        'TextInput'
+        'TextInput',
+        'RegistrationForm'
       ]
     };
   }
@@ -31,6 +34,8 @@ export default class Docs extends React.Component {
         return <ProgressBarPage/>;
       case 'TextInput':
         return <TextInputPage/>;
+      case 'RegistrationForm':
+        return <RegistrationFormPage/>;
       default:
         throw new Error('Unknown page ' + this.state.page);
     }
@@ -39,6 +44,7 @@ export default class Docs extends React.Component {
   render() {
     return (
       <div>
+        <Title="Pluralsight UI" />
         <div id="navigation">
           <ul className="unstyled">
             {
