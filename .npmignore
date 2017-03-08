@@ -24,3 +24,6 @@ public
 
 #Yarn
 yarn.lock
+
+#Webstorm
+.idea
