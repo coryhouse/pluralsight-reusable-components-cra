@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const PropDocumentation = ({props}) => {
+const Props = ({props}) => {
   let propKeys = [];
   for (var property in props) {
     if (props.hasOwnProperty(property)) {
@@ -36,8 +36,8 @@ const PropDocumentation = ({props}) => {
   )
 }
 
-PropDocumentation.propTypes = {
+Props.propTypes = {
   props: PropTypes.object.isRequired
 };
 
-export default PropDocumentation;
+export default Props;
