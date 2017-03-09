@@ -48,7 +48,7 @@ function generate(componentsPath, examplesPath) {
       });
       console.log(code);
       example.examples.push({
-        component: file,
+        name: file,
         path: fullPath,
         description: 'desc',
         code: code
