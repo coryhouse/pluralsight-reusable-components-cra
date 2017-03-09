@@ -27,14 +27,11 @@ th, td {
     padding: 5px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 #navigation {
   float: left;
   width: 175px;
+  list-style-type: none;
+  padding: 0;
 }
 
 a:visited {
