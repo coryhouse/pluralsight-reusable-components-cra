@@ -30,6 +30,7 @@ ComponentPage.propTypes = {
    * Component code in string format
    */
   code: PropTypes.string,
+
   /**
    * Array of example components
    */
