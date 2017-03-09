@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react';
 import Example from '../../Example';
 import ComponentPage from '../../ComponentPage';
-import code from '!raw-loader!ps-ui/TextInput/TextInput';
 import ExampleRequired from './ExampleRequired';
 import ExampleRequiredCode from '!raw-loader!./ExampleRequired';
 
-const TextInputPage = ({name}) => {
+const TextInputPage = ({name, code}) => {
   return (
     <ComponentPage
       name={name}
@@ -21,7 +20,8 @@ const TextInputPage = ({name}) => {
 };
 
 React.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired
 };
 
 export default TextInputPage;

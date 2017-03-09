@@ -1,13 +1,12 @@
 import React, {PropTypes} from 'react';
 import Example from '../../Example';
 import ComponentPage from '../../ComponentPage';
-import code from '!raw-loader!ps-ui/PasswordInput/PasswordInput';
 import ExampleAllFeatures from './ExampleAllFeatures';
 import ExampleAllFeaturesCode from '!raw-loader!./ExampleAllFeatures';
 import ExampleJustToggleVisibility from './ExampleJustToggleVisibility';
 import ExampleJustToggleVisibilityCode from '!raw-loader!./ExampleJustToggleVisibility';
 
-const PasswordInputPage = ({name}) => {
+const PasswordInputPage = ({name, code}) => {
   return (
     <ComponentPage
       name={name}
@@ -20,7 +19,8 @@ const PasswordInputPage = ({name}) => {
 };
 
 React.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired
 };
 
 export default PasswordInputPage;

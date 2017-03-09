@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import Example from '../../Example';
 import ComponentPage from '../../ComponentPage';
-import code from '!raw-loader!ps-ui/ProgressBar/ProgressBar';
 import Example10Percent from './Example10Percent';
 import Example10PercentCode from '!raw-loader!./Example10Percent';
 import Example70Percent from './Example70Percent';
@@ -9,7 +8,7 @@ import Example70PercentCode from '!raw-loader!./Example70Percent';
 import Example100Percent from './Example100Percent';
 import Example100PercentCode from '!raw-loader!./Example100Percent';
 
-const ProgressBarPage = ({name}) => {
+const ProgressBarPage = ({name, code}) => {
   return (
     <ComponentPage
       name={name}
@@ -23,7 +22,8 @@ const ProgressBarPage = ({name}) => {
 };
 
 React.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired
 };
 
 export default ProgressBarPage;

@@ -6,8 +6,8 @@ export default class Docs extends React.Component {
     super(props);
 
     this.state = {
-      page: 'ProgressBar',
-      pages: [
+      currentComponent: 'ProgressBar',
+      components: [
         'ProgressBar',
         'PasswordInput',
         'TextInput',
@@ -18,14 +18,16 @@ export default class Docs extends React.Component {
 
   setPage(event, arg) {
     event.preventDefault();
-    this.setState({page: arg.page});
+    this.setState({currentComponent: arg.page});
   }
 
   getPage() {
     // Dynamically require page. Must use require here
     // since ES imports do not support dynamic importing.
-    const Page = require('./examples/' + this.state.page + '/Page').default;
-    return <Page name={this.state.page} />;
+    const {currentComponent} = this.state;
+    const Page = require('./examples/' + currentComponent + '/Page').default;
+    const code = require('!raw-loader!ps-ui/' + currentComponent + '/' + currentComponent);
+    return <Page name={currentComponent} code={code} />;
   }
 
   render() {
@@ -35,7 +37,7 @@ export default class Docs extends React.Component {
         <div id="navigation">
           <ul className="unstyled">
             {
-              this.state.pages.map( page => {
+              this.state.components.map( page => {
                 return <li key={page}><a href="#" onClick={(event) => this.setPage(event, {page})}>{page}</a></li>
               })
             }

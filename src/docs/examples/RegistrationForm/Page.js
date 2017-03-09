@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react';
 import Example from '../../Example';
 import ComponentPage from '../../ComponentPage';
-import code from '!raw-loader!ps-ui/RegistrationForm/RegistrationForm';
 import ExampleRegistrationForm from './ExampleRegistrationForm';
 import ExampleRegistrationFormCode from '!raw-loader!./ExampleRegistrationForm';
 
-const RegistrationFormPage = ({name}) => {
+const RegistrationFormPage = ({name, code}) => {
   return (
     <ComponentPage
       name={name}
@@ -17,7 +16,8 @@ const RegistrationFormPage = ({name}) => {
 };
 
 React.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired
 };
 
 export default RegistrationFormPage;
