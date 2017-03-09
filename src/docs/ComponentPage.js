@@ -8,7 +8,7 @@ const ComponentPage = ({name, code, examples}) => {
 
   return (
     <div>
-      <Title render={(previousTitle) => `${previousTitle} ${name}`} />
+      <Title render={(previousTitle) => `${previousTitle} - ${name}`} />
       <h2>{name}</h2>
       <p>{info.description}</p>
 
