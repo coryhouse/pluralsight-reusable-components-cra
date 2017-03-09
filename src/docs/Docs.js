@@ -1,8 +1,4 @@
 import React from 'react';
-import ProgressBarPage from './examples/ProgressBar/Page';
-import PasswordInputPage from './examples/PasswordInput/Page';
-import TextInputPage from './examples/TextInput/Page';
-import RegistrationFormPage from './examples/RegistrationForm/Page';
 import Title from 'react-title-component';
 
 export default class Docs extends React.Component {
@@ -26,25 +22,16 @@ export default class Docs extends React.Component {
   }
 
   getPage() {
-    switch(this.state.page) {
-      case 'PasswordInput':
-      case '': // default page
-        return <PasswordInputPage />;
-      case 'ProgressBar':
-        return <ProgressBarPage/>;
-      case 'TextInput':
-        return <TextInputPage/>;
-      case 'RegistrationForm':
-        return <RegistrationFormPage/>;
-      default:
-        throw new Error('Unknown page ' + this.state.page);
-    }
+    // Dynamically require page. Must use require here
+    // since ES imports do not support dynamic importing.
+    const Page = require('./examples/' + this.state.page + '/Page').default;
+    return <Page />;
   }
 
   render() {
     return (
       <div>
-        <Title="Pluralsight UI" />
+        <Title render="Pluralsight UI" />
         <div id="navigation">
           <ul className="unstyled">
             {
