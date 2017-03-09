@@ -1,22 +1,26 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Example from '../../Example';
 import ComponentPage from '../../ComponentPage';
-import PasswordInputCode from '!raw-loader!ps-ui/PasswordInput/PasswordInput';
+import code from '!raw-loader!ps-ui/PasswordInput/PasswordInput';
 import ExampleAllFeatures from './ExampleAllFeatures';
 import ExampleAllFeaturesCode from '!raw-loader!./ExampleAllFeatures';
 import ExampleJustToggleVisibility from './ExampleJustToggleVisibility';
 import ExampleJustToggleVisibilityCode from '!raw-loader!./ExampleJustToggleVisibility';
 
-const PasswordInputPage = () => {
+const PasswordInputPage = ({name}) => {
   return (
     <ComponentPage
-      name="PasswordInput"
-      code={PasswordInputCode}
+      name={name}
+      code={code}
       examples={[
         <Example key="ExampleAllFeatures" code={ExampleAllFeaturesCode}><ExampleAllFeatures /></Example>,
         <Example key="ExampleJustToggleVisibility" code={ExampleJustToggleVisibilityCode}><ExampleJustToggleVisibility /></Example>
       ]} />
   )
+};
+
+React.propTypes = {
+  name: PropTypes.string.isRequired
 };
 
 export default PasswordInputPage;

@@ -25,7 +25,7 @@ export default class Docs extends React.Component {
     // Dynamically require page. Must use require here
     // since ES imports do not support dynamic importing.
     const Page = require('./examples/' + this.state.page + '/Page').default;
-    return <Page />;
+    return <Page name={this.state.page} />;
   }
 
   render() {

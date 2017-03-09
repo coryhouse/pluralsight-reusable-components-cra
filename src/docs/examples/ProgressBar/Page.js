@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Example from '../../Example';
 import ComponentPage from '../../ComponentPage';
 import code from '!raw-loader!ps-ui/ProgressBar/ProgressBar';
@@ -9,10 +9,10 @@ import Example70PercentCode from '!raw-loader!./Example70Percent';
 import Example100Percent from './Example100Percent';
 import Example100PercentCode from '!raw-loader!./Example100Percent';
 
-const ProgressBarPage = () => {
+const ProgressBarPage = ({name}) => {
   return (
     <ComponentPage
-      name="ProgressBar"
+      name={name}
       code={code}
       examples={[
         <Example key="Example10Percent" code={Example10PercentCode}><Example10Percent /></Example>,
@@ -20,6 +20,10 @@ const ProgressBarPage = () => {
         <Example key="Example100Percent" code={Example100PercentCode}><Example100Percent /></Example>
       ]} />
   )
+};
+
+React.propTypes = {
+  name: PropTypes.string.isRequired
 };
 
 export default ProgressBarPage;
