@@ -11,7 +11,11 @@ const TextInputPage = () => {
       name="TextInput"
       code={code}
       examples={[
-        <Example key="ExampleRequired" code={ExampleRequiredCode}><ExampleRequired /></Example>
+        <Example
+          key="ExampleRequired"
+          code={ExampleRequiredCode}>
+          <ExampleRequired />
+        </Example>
       ]} />
   )
 };
