@@ -79,6 +79,7 @@
     "react-dom": ">=0.14.0"
   },
   "scripts": {
+    "prestart": "node scripts/generateComponentData.js",
     "start": "node scripts/start.js",
     "prebuild:lib": "rimraf lib",
     "build:lib": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:css",
