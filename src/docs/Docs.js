@@ -1,24 +1,20 @@
 import React from 'react';
 import Title from 'react-title-component';
+import componentData from './componentData';
 
 export default class Docs extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(componentData);
     this.state = {
-      currentComponent: 'ProgressBar',
-      components: [
-        'ProgressBar',
-        'PasswordInput',
-        'TextInput',
-        'RegistrationForm'
-      ]
+      // Default to the first component in the array.
+      currentComponent: componentData[0].name
     };
   }
 
-  setPage(event, arg) {
+  setPage(event, component) {
     event.preventDefault();
-    this.setState({currentComponent: arg.page});
+    this.setState({currentComponent: component});
   }
 
   getPage() {
@@ -37,8 +33,15 @@ export default class Docs extends React.Component {
         <div id="navigation">
           <ul className="unstyled">
             {
-              this.state.components.map( page => {
-                return <li key={page}><a href="#" onClick={(event) => this.setPage(event, {page})}>{page}</a></li>
+              componentData.map( component => {
+                const {name} = component;
+                return (
+                  <li key={name}>
+                    <a href="#" onClick={(event) => this.setPage(event, name)}>
+                      {name}
+                    </a>
+                  </li>
+                )
               })
             }
           </ul>
