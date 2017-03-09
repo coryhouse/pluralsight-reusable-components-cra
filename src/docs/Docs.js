@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from 'react-title-component';
+import Navigation from './Navigation';
 import componentData from './componentData';
 
 export default class Docs extends React.Component {
@@ -12,7 +13,7 @@ export default class Docs extends React.Component {
     };
   }
 
-  setPage(event, component) {
+  setPage = (event, component) => {
     event.preventDefault();
     this.setState({currentComponent: component});
   }
@@ -27,25 +28,12 @@ export default class Docs extends React.Component {
   }
 
   render() {
+    const components = componentData.map( component => component.name);
+
     return (
       <div>
         <Title render="Pluralsight UI" />
-        <div id="navigation">
-          <ul className="unstyled">
-            {
-              componentData.map( component => {
-                const {name} = component;
-                return (
-                  <li key={name}>
-                    <a href="#" onClick={(event) => this.setPage(event, name)}>
-                      {name}
-                    </a>
-                  </li>
-                )
-              })
-            }
-          </ul>
-       </div>
+        <Navigation components={components} setPage={this.setPage}/>
 
         <div id="page-wrapper">
           {this.getPage()}
