@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import PropDocumentation from './PropDocumentation';
+import Props from './Props';
 import Title from 'react-title-component';
 import {parse} from 'react-docgen';
 
@@ -8,7 +8,7 @@ const ComponentPage = ({name, code, examples}) => {
 
   return (
     <div>
-      <Title render={(previousTitle) => `${previousTitle} - ${name}`} />
+      <Title render={previousTitle => `${previousTitle} - ${name}`} />
       <h2>{name}</h2>
       <p>{info.description}</p>
 
@@ -20,7 +20,7 @@ const ComponentPage = ({name, code, examples}) => {
       }
 
       <h3>Props</h3>
-      <PropDocumentation props={info.props} />
+      <Props props={info.props} />
     </div>
   )
 };
