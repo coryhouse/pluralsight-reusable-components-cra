@@ -14,7 +14,7 @@ const ComponentPage = ({component}) => {
 
       <h3>Examples</h3>
       {
-        examples.map( example => <Example key={example.name} example={example} /> )
+        examples.map( example => <Example key={example.name} example={example} componentName={name} /> )
       }
 
       <h3>Props</h3>

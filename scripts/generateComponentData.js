@@ -13,7 +13,7 @@ function getFiles(srcpath) {
 
 function writeFile(filename, content) {
   fs.writeFile(path.join(__dirname, '../src', 'docs', filename), content, function (err) {
-    err ? console.log(err) : console.log(chalk.green("Example data saved."));
+    err ? console.log(err) : console.log(chalk.green("Component data saved."));
   });
 }
 
@@ -38,8 +38,9 @@ function getExampleData(examplesPath, componentName) {
     let content = readFile(filePath)
     let info = parse(content);
     return {
-      name: file.slice(0, -3), //Remove the .js extension,
-      path: path.join('examples', componentName), // TODO: Make this configurable or move to Examples.js.
+      // By convention, assume the component's name matches the filename.
+      // So just remove the .js extension.
+      name: file.slice(0, -3),
       description: info.description,
       code: content
     };

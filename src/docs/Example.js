@@ -16,10 +16,10 @@ class Example extends React.Component {
 
   render() {
     const {showCode} = this.state;
-    const {code, description, name, path} = this.props.example;
-    // Must use CommonJS require to dynamically require. ES Modules
-    // must be statically analyzable.
-    const ExampleComponent = require('./' + path + '/' + name).default;
+    const {componentName} = this.props;
+    const {code, description, name} = this.props.example;
+    // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
+    const ExampleComponent = require(`./examples/${componentName}/${name}`).default;
     return (
       <div className="example-wrapper">
         <h4>{description}</h4>
@@ -39,7 +39,8 @@ class Example extends React.Component {
 }
 
 Example.propTypes = {
-  example: PropTypes.object.isRequired
+  example: PropTypes.object.isRequired,
+  componentName: PropTypes.string.isRequired
 }
 
 export default Example;
