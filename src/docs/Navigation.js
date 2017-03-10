@@ -4,10 +4,10 @@ const Navigation = ({components, setPage}) => {
   return (
     <ul id="navigation">
       {
-        components.map( name => {
+        components.map( (name, index) => {
           return (
             <li key={name}>
-              <a href="#" onClick={event => setPage(event, name)}>
+              <a href="#" onClick={event => setPage(event, index)}>
                 {name}
               </a>
             </li>

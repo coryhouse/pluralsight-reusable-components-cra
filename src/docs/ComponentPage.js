@@ -1,40 +1,30 @@
 import React, {PropTypes} from 'react';
+import Example from './Example';
 import Props from './Props';
 import Title from 'react-title-component';
-import {parse} from 'react-docgen';
 
-const ComponentPage = ({name, code, examples}) => {
-  const info = parse(code);
+const ComponentPage = ({component}) => {
+  const {name, description, props, examples} = component;
 
   return (
-    <div>
+    <div id="page-wrapper">
       <Title render={previousTitle => `${previousTitle} - ${name}`} />
       <h2>{name}</h2>
-      <p>{info.description}</p>
+      <p>{description}</p>
 
       <h3>Examples</h3>
       {
-        examples.map(example => {
-          return example;
-        })
+        examples.map( example => <Example key={example.name} example={example} /> )
       }
 
       <h3>Props</h3>
-      <Props props={info.props} />
+      <Props props={props} />
     </div>
   )
 };
 
 ComponentPage.propTypes = {
-  /**
-   * Component code in string format
-   */
-  code: PropTypes.string,
-
-  /**
-   * Array of example components
-   */
-  examples: PropTypes.array
+  component: PropTypes.object.isRequired
 };
 
 export default ComponentPage;

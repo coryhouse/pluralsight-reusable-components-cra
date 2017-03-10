@@ -1,44 +1,32 @@
 import React from 'react';
 import Title from 'react-title-component';
 import Navigation from './Navigation';
+import ComponentPage from './ComponentPage';
 import componentData from './componentData';
 
 export default class Docs extends React.Component {
   constructor(props) {
     super(props);
-    console.log(componentData);
     this.state = {
       // Default to the first component in the array.
-      currentComponent: componentData[0].name
+      currentComponent: componentData[0]
     };
   }
 
-  setPage = (event, component) => {
+  setPage = (event, index) => {
     event.preventDefault();
-    this.setState({currentComponent: component});
-  }
-
-  getPage() {
-    // Dynamically require page. Must use require here
-    // since ES imports do not support dynamic importing.
-    const {currentComponent} = this.state;
-    const Page = require('./examples/' + currentComponent + '/Page').default;
-    const code = require('!raw-loader!ps-ui/' + currentComponent + '/' + currentComponent);
-    return <Page name={currentComponent} code={code} />;
+    this.setState({currentComponent: componentData[index]});
   }
 
   render() {
+    const {currentComponent} = this.state;
     const components = componentData.map( component => component.name);
 
     return (
       <div>
         <Title render="Pluralsight UI" />
         <Navigation components={components} setPage={this.setPage}/>
-
-        <div id="page-wrapper">
-          {this.getPage()}
-        </div>
-
+        <ComponentPage component={currentComponent} />
         <div className="clear"></div>
       </div>
     )

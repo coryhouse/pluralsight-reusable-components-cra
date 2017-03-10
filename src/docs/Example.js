@@ -1,14 +1,10 @@
 import React, {PropTypes} from 'react';
-import {parse} from 'react-docgen';
 import Highlight from 'react-highlight';
 
 class Example extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      showCode: false
-    };
+    this.state = { showCode: false };
   }
 
   toggleCode(event) {
@@ -19,16 +15,16 @@ class Example extends React.Component {
   }
 
   render() {
-    const {children, code} = this.props;
     const {showCode} = this.state;
-    const info = parse(code);
+    const {code, description, name, path} = this.props.example;
+    // Must use CommonJS require to dynamically require. ES Modules
+    // must be statically analyzable.
+    const ExampleComponent = require('./' + path + '/' + name).default;
     return (
       <div className="example-wrapper">
-        <h4>
-          {info.description}
-        </h4>
+        <h4>{description}</h4>
 
-        {children}
+        <ExampleComponent />
 
         <p>
           <a href="#" onClick={this.toggleCode.bind(this)}>
@@ -43,7 +39,7 @@ class Example extends React.Component {
 }
 
 Example.propTypes = {
-  code: PropTypes.string.isRequired
+  example: PropTypes.object.isRequired
 }
 
 export default Example;
