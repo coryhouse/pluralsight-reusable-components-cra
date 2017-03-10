@@ -18,7 +18,9 @@ const ComponentPage = ({component}) => {
       }
 
       <h3>Props</h3>
-      <Props props={props} />
+      {
+        props ? <Props props={props} /> : "This component accepts no props."
+      }
     </div>
   )
 };
