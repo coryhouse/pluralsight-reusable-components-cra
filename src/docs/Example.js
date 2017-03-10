@@ -22,7 +22,7 @@ class Example extends React.Component {
     const ExampleComponent = require(`./examples/${componentName}/${name}`).default;
     return (
       <div className="example-wrapper">
-        <h4>{description}</h4>
+        {description && <h4>{description}</h4> }
 
         <ExampleComponent />
 
