@@ -29,17 +29,17 @@ th, td {
 
 #navigation {
   float: left;
-  width: 175px;
+  width: 250px;
   list-style-type: none;
   padding: 0;
 }
 
-a:visited {
-  color: #666666;
+#page-wrapper {
+  margin-left: 275px;
 }
 
-#page-wrapper {
-  margin-left: 185px;
+a:visited {
+  color: #666666;
 }
 
 .clear {
