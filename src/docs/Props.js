@@ -1,13 +1,6 @@
 import React, {PropTypes} from 'react';
 
 const Props = ({props}) => {
-  let propKeys = [];
-  for (var property in props) {
-    if (props.hasOwnProperty(property)) {
-      propKeys.push(property);
-    }
-  }
-
   return (
     <table className="props">
       <thead>
@@ -21,7 +14,7 @@ const Props = ({props}) => {
       </thead>
       <tbody>
       {
-        propKeys.map(key => {
+        Object.keys(props).map(key => {
           return (
             <tr key={key}>
               <td>{key}</td>
