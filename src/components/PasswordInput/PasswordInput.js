@@ -7,16 +7,20 @@ import TextInput from '../TextInput';
  * Password input with integrated label, quality tips, and show password toggle.
  */
 class PasswordInput extends React.Component {
+  static defaultProps = {
+    minLength: 5,
+    maxLength: 50,
+    showVisibilityToggle: false
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       showPassword: false
     }
-
-    this.toggleShowPassword = this.toggleShowPassword.bind(this);
   }
 
-  toggleShowPassword(event) {
+  toggleShowPassword = (event) => {
     this.setState((prevState) => {
       return { showPassword: !prevState.showPassword };
     });
@@ -152,11 +156,5 @@ PasswordInput.propTypes = {
    */
   theme: PropTypes.object
 };
-
-PasswordInput.default = {
-  minLength: 5,
-  maxLength: 50,
-  showVisibilityToggle: false
-}
 
 export default PasswordInput;
