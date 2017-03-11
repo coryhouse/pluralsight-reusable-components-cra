@@ -11,6 +11,9 @@
     "email": "cory@reactjsconsulting.com",
     "url": "http://reactjsconsulting.com/"
   },
+  "files": [
+    "lib"
+  ],
   "homepage": "http://coryhouse.github.io/pluralsight-reusable-components-cra",
   "devDependencies": {
     "autoprefixer": "6.7.2",
