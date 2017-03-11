@@ -140,5 +140,8 @@
         ]
       }
     }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }
