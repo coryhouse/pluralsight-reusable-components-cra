@@ -78,11 +78,11 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-       // Keep imports from docs to components short.
+       // Keep imports from docs to components short. ps-ui requires will point to /src/components instead of node_modules
       'ps-ui': path.resolve(__dirname, '../src/components')
     }
   },
-  
+
   module: {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
@@ -122,7 +122,7 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel',
         query: {
-          
+
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
@@ -158,7 +158,7 @@ module.exports = {
   },
   // Point ESLint to our predefined config.
   eslint: {
-    
+
     cache: true
   },
   // We use PostCSS for autoprefixing only.
