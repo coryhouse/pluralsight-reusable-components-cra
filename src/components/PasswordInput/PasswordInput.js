@@ -154,7 +154,9 @@ PasswordInput.propTypes = {
 };
 
 PasswordInput.default = {
-  minLength: 5
+  minLength: 5,
+  maxLength: 50,
+  showVisibilityToggle: false
 }
 
 export default PasswordInput;
