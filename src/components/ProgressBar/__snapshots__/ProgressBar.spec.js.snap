@@ -1,4 +1,4 @@
-exports[`ProgressBar should render dark green with 100% 1`] = `
+exports[`test should render dark green with 100% 1`] = `
 <div
   className={undefined}>
   <div
@@ -12,7 +12,7 @@ exports[`ProgressBar should render dark green with 100% 1`] = `
 </div>
 `;
 
-exports[`ProgressBar should render light green with 60% 1`] = `
+exports[`test should render light green with 60% 1`] = `
 <div
   className={undefined}>
   <div
@@ -26,7 +26,7 @@ exports[`ProgressBar should render light green with 60% 1`] = `
 </div>
 `;
 
-exports[`ProgressBar should render red with 20% 1`] = `
+exports[`test should render red with 20% 1`] = `
 <div
   className={undefined}>
   <div
