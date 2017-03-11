@@ -15,6 +15,7 @@ const Props = ({props}) => {
           <th>Name</th>
           <th>Description</th>
           <th>Type</th>
+          <th>Default</th>
           <th>Required</th>
         </tr>
       </thead>
@@ -26,6 +27,7 @@ const Props = ({props}) => {
               <td>{key}</td>
               <td>{props[key].description}</td>
               <td>{props[key].type.name}</td>
+              <td>{props[key].defaultValue && props[key].defaultValue.value}</td>
               <td>{props[key].required && "X"}</td>
             </tr>
           );
