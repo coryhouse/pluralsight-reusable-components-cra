@@ -124,7 +124,8 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^react-native$": "react-native-web",
+      "^ps-ui(.*)$": "<rootDir>/src/components$1"
     }
   },
   "babel": {
