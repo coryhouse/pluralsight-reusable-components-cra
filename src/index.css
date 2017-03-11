@@ -24,7 +24,7 @@ table.props tr td:last-of-type {
 
 th, td {
   text-align: left;
-    padding: 5px;
+  padding: 5px;
 }
 
 #navigation {
@@ -48,4 +48,16 @@ a:visited {
 
 .fieldset {
   margin-bottom: 16px;
+}
+
+td {
+  border-top: solid 1px #d3d3d3;
+}
+
+td, th {
+  padding: 10px;
+}
+
+table {
+  border-collapse:collapse;
 }
