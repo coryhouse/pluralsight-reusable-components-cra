@@ -14,6 +14,13 @@
   "files": [
     "lib"
   ],
+  "keywords": [
+    "components",
+    "react",
+    "react-component",
+    "toolkit",
+    "pluralsight"
+  ],
   "homepage": "http://coryhouse.github.io/pluralsight-reusable-components-cra",
   "devDependencies": {
     "autoprefixer": "6.7.2",
