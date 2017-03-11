@@ -38,8 +38,7 @@ function getExampleData(examplesPath, componentName) {
     let content = readFile(filePath)
     let info = parse(content);
     return {
-      // By convention, assume the component's name matches the filename.
-      // So just remove the .js extension.
+      // Remove the .js extension. Assume the component's name matches the filename.
       name: file.slice(0, -3),
       description: info.description,
       code: content
