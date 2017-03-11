@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 /**
  * Abstraction over text input to enforce consistency in validation and labels
  */
-const TextInput = ({name, label, type, required, onChange, placeholder, value, error, children, ...props}) => {
+const TextInput = ({name, label, type = "text", required, onChange, placeholder, value, error, children, ...props}) => {
   let inputStyle = {};
   if (error && error.length > 0) {
     inputStyle = {
@@ -16,7 +16,7 @@ const TextInput = ({name, label, type, required, onChange, placeholder, value, e
       <label htmlFor={name}>{label}</label> { required && "*" }
       <div className="field">
         <input
-          type={type || "text"} // default to text input
+          type={type}
           name={name}
           className="form-control"
           placeholder={placeholder}
