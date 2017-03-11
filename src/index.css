@@ -61,3 +61,7 @@ td, th {
 table {
   border-collapse:collapse;
 }
+
+.required-field-asterisk {
+  color: red;
+}
