@@ -59,9 +59,6 @@ yarn-error.log*
 # built docs
 /docs
 
-# Webstorm
-.idea
-
 # Generated component data
 /src/docs/componentData.js
 
