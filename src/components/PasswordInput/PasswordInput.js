@@ -10,7 +10,10 @@ class PasswordInput extends React.Component {
   static defaultProps = {
     minLength: 5,
     maxLength: 50,
-    showVisibilityToggle: false
+    showVisibilityToggle: false,
+    showQuality: false,
+    showTips: false,
+    label: 'Password'
   };
 
   constructor(props) {
