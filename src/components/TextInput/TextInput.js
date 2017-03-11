@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
 
 /**
- * Abstraction over text input to enforce consistency in validation and labels
+ * Abstraction over text input to enforce consistency in validation, labels, and required field marker
  */
-const TextInput = ({name, label, type = "text", required, onChange, placeholder, value, error, children, ...props}) => {
+const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   let inputStyle = {};
   if (error && error.length > 0) {
     inputStyle = {
@@ -13,7 +13,8 @@ const TextInput = ({name, label, type = "text", required, onChange, placeholder,
 
   return (
     <div className="fieldset">
-      <label htmlFor={name}>{label}</label> { required && "*" }
+      <label htmlFor={name}>{label}</label>
+      { required && <span className="required-field-asterisk"> *</span> }
       <div className="field">
         <input
           type={type}
@@ -25,7 +26,7 @@ const TextInput = ({name, label, type = "text", required, onChange, placeholder,
           style={inputStyle}
           {...props}/>
           {children}
-        {error && <div style={{ color: 'red'}}>{error}</div>}
+        {error && <div className="error" style={{ color: 'red'}}>{error}</div>}
       </div>
     </div>
   );
