@@ -133,12 +133,5 @@
         ]
       }
     }
-  },
-  "//": " NOTE: TO GET THE RULE OVERRIDE BELOW TO STICK, YOU HAVE TO rm -rf node_modules! SIGH.",
-  "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "import/no-webpack-loader-syntax": 0
-    }
   }
 }
