@@ -2,20 +2,18 @@ import React from 'react';
 import TextInput from 'ps-ui/TextInput';
 
 /**
- * Required field
+ * With error
  */
-export default class ExampleRequired extends React.Component {
-  onChange = () => {
-
-  }
-
+export default class ExampleOptional extends React.Component {
   render() {
     return (
       <TextInput
         label="First Name"
         name="firstname"
-        onChange={this.onChange}
-        required />
+        onChange={() => {}}
+        required
+        error="First name is required."
+       />
     )
   }
 }
