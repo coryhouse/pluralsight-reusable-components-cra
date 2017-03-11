@@ -5,7 +5,7 @@ import TextInput from '../TextInput';
 /**
  * Registration form that requires email and password
  */
-const RegistrationForm = ({email, password, errors, onChange, onSubmit}) => {
+const RegistrationForm = ({email, password, errors, onChange, onSubmit, submitButtonValue="Register"}) => {
   return (
     <div>
       <TextInput
@@ -27,7 +27,7 @@ const RegistrationForm = ({email, password, errors, onChange, onSubmit}) => {
         maxLength={50}
         error={errors.password} />
 
-      <input type="submit" value="Register" onClick={onSubmit} />
+      <input type="submit" value={submitButtonValue} onClick={onSubmit} />
     </div>
   );
 }
@@ -56,7 +56,12 @@ RegistrationForm.propTypes = {
   /**
    * Function to call on input change
    */
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+
+  /**
+   * Submit button label
+   */
+  submitButtonValue: PropTypes.string
 };
 
 export default RegistrationForm;
