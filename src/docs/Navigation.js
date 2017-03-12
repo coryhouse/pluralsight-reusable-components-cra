@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const Navigation = ({components, setPage}) => {
   return (
-    <ul id="navigation">
+    <ul className="navigation">
       {
         components.map( (name, index) => {
           return (

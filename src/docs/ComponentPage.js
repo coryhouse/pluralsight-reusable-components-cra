@@ -7,7 +7,7 @@ const ComponentPage = ({component}) => {
   const {name, description, props, examples} = component;
 
   return (
-    <div id="page-wrapper">
+    <div className="componentpage">
       <Title render={previousTitle => `${previousTitle} - ${name}`} />
       <h2>{name}</h2>
       <p>{description}</p>

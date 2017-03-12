@@ -21,7 +21,7 @@ class Example extends React.Component {
     // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
     const ExampleComponent = require(`./examples/${componentName}/${name}`).default;
     return (
-      <div className="example-wrapper">
+      <div className="example">
         {description && <h4>{description}</h4> }
 
         <ExampleComponent />
