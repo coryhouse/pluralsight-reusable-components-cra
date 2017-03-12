@@ -25,18 +25,18 @@ table {
 }
 
 /* Documentation site component styles, using BEM */
-.example__wrapper {
+.example {
   border: solid 1px #d3d3d3;
   padding: 16px;
   margin-bottom: 16px;
   background-color: #f4f6f9;
 }
 
-.example__wrapper h4:first-of-type {
+.example h4:first-of-type {
    margin-top: 0;
 }
 
-.example__wrapper p:last-of-type {
+.example p:last-of-type {
    margin-bottom: 0;
 }
 
@@ -56,6 +56,6 @@ table {
   padding: 0;
 }
 
-.componentpage__wrapper {
+.componentpage {
   margin-left: 275px;
 }
