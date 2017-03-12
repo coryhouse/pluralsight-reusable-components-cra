@@ -21,7 +21,6 @@ class ExampleJustToggleVisibility extends React.Component {
           onChange={(event) => this.setState({ password: event.target.value })}
           value={this.state.password}
           minLength={8}
-          maxLength={50}
           showVisibilityToggle
           {...this.props} />
       </div>
