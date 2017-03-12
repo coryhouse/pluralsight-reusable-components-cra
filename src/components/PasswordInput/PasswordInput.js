@@ -152,12 +152,7 @@ PasswordInput.propTypes = {
   /**
    * Set to true to show tips for improving the password
    */
-  showTips: PropTypes.bool,
-
-  /**
-   * Object that overrides the default theme
-   */
-  theme: PropTypes.object
+  showTips: PropTypes.bool
 };
 
 export default PasswordInput;
