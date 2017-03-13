@@ -1,32 +1,30 @@
 import React, {PropTypes} from 'react';
+import './textInput.css';
 
 /**
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker
  */
 const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  let inputStyle = {};
+  let inputClass = '';
   if (error && error.length > 0) {
-    inputStyle = {
-      border: 'solid 1px red'
-     }
+    inputClass+= 'textinput__input--state-error';
   }
 
   return (
-    <div className="fieldset">
+    <div className="textinput">
       <label htmlFor={name}>{label}</label>
-      { required && <span className="required-field-asterisk"> *</span> }
+      { required && <span className="textinput__asterisk"> *</span> }
       <div className="field">
         <input
           type={type}
           name={name}
-          className="form-control"
+          className={inputClass}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          style={inputStyle}
           {...props}/>
           {children}
-        {error && <div className="error" style={{ color: 'red'}}>{error}</div>}
+        {error && <div className="textinput__error">{error}</div>}
       </div>
     </div>
   );
