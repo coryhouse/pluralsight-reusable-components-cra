@@ -83,7 +83,9 @@
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^1.4.4"
+  },
   "peerDependencies": {
     "react": ">=0.14.0",
     "react-dom": ">=0.14.0"
