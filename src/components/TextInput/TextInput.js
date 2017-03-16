@@ -2,7 +2,8 @@ import React, {PropTypes} from 'react';
 import './textInput.css';
 
 /**
- * Abstraction over text input to enforce consistency in validation, labels, and required field marker
+ * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
+ * Using plain CSS with BEM to encapsulate styling.
  */
 const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   let inputClass = '';
