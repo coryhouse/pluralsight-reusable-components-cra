@@ -1,1 +1,1 @@
-export {default} from './TextInputStyledComponents.js';
+export {default} from './TextInputStyledComponents';
