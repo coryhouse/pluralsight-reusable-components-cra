@@ -1,20 +1,21 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 
 /**
  * TextInput using styled-components
  */
-const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+const TextInput = ({ name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props }) => {
   const Asterisk = styled.span`
     color: red;
   `;
 
-  const ErrorText = styled.div`
+  const Error = styled.div`
     color: red;
   `
 
   const Input = styled.input`
-    border: ${error => error.length > 0 ? 'solid 1px red' : null};
+    border: ${error => error.length > 0 ? 'solid 1px red;' : null};
+    display: block;
   `;
 
   const Fieldset = styled.div`
@@ -24,18 +25,16 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
   return (
     <Fieldset>
       <label htmlFor={name}>{label}</label>
-      { required && <Asterisk> *</Asterisk> }
-      <div className="field">
-          <Input
-            type={type}
-            name={name}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            {...props}/>
-          {children}
-        {error && <ErrorText>{error}</ErrorText>}
-      </div>
+      {required && <Asterisk> *</Asterisk>}
+      <Input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        {...props} />
+      {children}
+      {error && <Error>{error}</Error>}
     </Fieldset>
   );
 };
