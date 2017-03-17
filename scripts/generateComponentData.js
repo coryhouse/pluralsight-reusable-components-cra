@@ -63,6 +63,8 @@ function generate(componentsPath, examplesPath) {
     return getComponentData(componentsPath, examplesPath, componentName);
   });
 
+  // TODO: Remove by writing this file to a spot outside of src or ignoring via eslint config.
+  // This will eliminate the eslint dep on this file.
   writeFile('componentData.js', "/* eslint-disable */\n export default " + JSON.stringify(componentData));
 }
 
