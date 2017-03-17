@@ -15,17 +15,13 @@ class ProgressBar extends React.Component {
   }
 
   render() {
-    const height = this.props.height || 5;
-
-    let barStyle = {
-      width: this.props.percent,
-      height: height,
-      backgroundColor: this.getBarColor()
-    };
-
     return (
       <div className={styles.container}>
-        <div style={barStyle} />
+        <div style={{
+          width: this.props.percent,
+          height: 5,
+          backgroundColor: this.getBarColor()
+        }} />
       </div>
     );
   }
@@ -35,12 +31,7 @@ ProgressBar.propTypes = {
   /**
    * Number from 0 and 100 that represents progress.
    */
-  percent: PropTypes.number.isRequired,
-
-  /**
-   * Bar height in pixels.
-   */
-  height: PropTypes.number
+  percent: PropTypes.number.isRequired
 };
 
 export default ProgressBar;
