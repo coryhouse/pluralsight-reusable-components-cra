@@ -1,46 +1,47 @@
 import React, {PropTypes} from 'react';
 
-// Note: Can declare this is in a separate .js file if desired.
-// Or, declare them inline if only used once.
-const style = {
-  asterisk: {
-    color: 'red'
-  },
-  input: {
-    error: {
-      border: 'solid 1px red'
-    }
-  },
-  fieldset: {
-    marginBottom: 16
-  }
-}
+// Note that I could declare any repeated pieces like this in a separate file instead if desired.
+// const style = {
+//   asterisk: {
+//     color: 'red'
+//   },
+//   error: {
+//     color: 'red'
+//   },
+//   input: {
+//     error: {
+//       border: 'solid 1px red'
+//     },
+//     display: 'block'
+//   },
+//   fieldset: {
+//     marginBottom: 16
+//   }
+// }
 
 /**
  * TextInput styled using React's inline styles
  */
 const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  let inputStyle = {};
+  const inputStyle = {display: 'block'};
   if (error && error.length > 0) {
-    inputStyle = style.input.error
+    inputStyle.border = 'solid 1px red';
   }
 
   return (
-    <div style={style.asterisk}>
+    <div style={{marginBottom: 16}}>
       <label htmlFor={name}>{label}</label>
-      { required && <span style={style.required}> *</span> }
-      <div className="field">
-        <input
-          type={type}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          style={inputStyle}
-          {...props}/>
-          {children}
-        {error && <div style={style.error}>{error}</div>}
-      </div>
+      { required && <span style={{color: 'red'}}> *</span> }
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        style={inputStyle}
+        {...props}/>
+        {children}
+      {error && <div style={{color: 'red'}}>{error}</div>}
     </div>
   );
 };
