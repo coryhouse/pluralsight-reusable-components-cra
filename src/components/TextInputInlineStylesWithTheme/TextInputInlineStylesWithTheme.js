@@ -16,25 +16,24 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
   const inputBorderColor = (error && error.length > 0) ? defaultTheme.error.color : theme.accentColor;
   let inputStyle = {
     color: theme.fontColor,
-    border: `solid ${theme.borderWidth} ${inputBorderColor}`
+    border: `solid ${theme.borderWidth} ${inputBorderColor}`,
+    display: 'block'
   };
 
   return (
     <div style={{marginBottom: defaultTheme.fieldset.marginBottom}}>
       <label htmlFor={name}>{label}</label>
       { required && <span style={{color: defaultTheme.error.color}}> *</span> }
-      <div className="field">
-        <input
-          type={type}
-          name={name}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          style={inputStyle}
-          {...props}/>
-          {children}
-        {error && <div style={{color: defaultTheme.error.color}}>{error}</div>}
-      </div>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        style={inputStyle}
+        {...props}/>
+        {children}
+      {error && <div style={{color: defaultTheme.error.color}}>{error}</div>}
     </div>
   );
 };
