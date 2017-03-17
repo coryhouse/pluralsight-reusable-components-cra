@@ -16,6 +16,7 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
 
   const Input = styled.input`
     border: ${error => error.length > 0 ? 'solid 1px red' : null};
+    display: block;
   `;
 
   const Fieldset = styled.div`
@@ -26,17 +27,15 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
     <Fieldset>
       <label htmlFor={name}>{label}</label>
       { required && <Asterisk> *</Asterisk> }
-      <div className="field">
-          <Input
-            type={type}
-            name={name}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            {...props}/>
-          {children}
-        {error && <ErrorText>{error}</ErrorText>}
-      </div>
+      <Input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        {...props}/>
+      {children}
+    {error && <ErrorText>{error}</ErrorText>}
     </Fieldset>
   );
 };
