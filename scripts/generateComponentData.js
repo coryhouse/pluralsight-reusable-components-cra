@@ -63,7 +63,7 @@ function generate(componentsPath, examplesPath) {
     return getComponentData(componentsPath, examplesPath, componentName);
   });
 
-  writeFile('componentData.js', "export default " + JSON.stringify(componentData));
+  writeFile('componentData.js', "/* eslint-disable */\n export default " + JSON.stringify(componentData));
 }
 
 const examplesPath = path.join(__dirname, '../src', 'docs', 'examples');
