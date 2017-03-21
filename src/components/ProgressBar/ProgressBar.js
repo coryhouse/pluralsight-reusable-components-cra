@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import styles from './ProgressBar.css';
 
 /**
  * Display progress from 0% to 100%
@@ -16,7 +15,7 @@ class ProgressBar extends React.Component {
 
   render() {
     return (
-      <div className={styles.container}>
+      <div style={{border: 'solid 1px lightgray', width: 100}}>
         <div style={{
           width: this.props.percent,
           height: 5,
