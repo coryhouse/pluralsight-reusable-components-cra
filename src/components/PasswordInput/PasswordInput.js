@@ -45,7 +45,7 @@ class PasswordInput extends React.Component {
   render() {
     const {value, label, error, name, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
     const {showPassword} = this.state;
-    const password = value || '';
+    const password = value; // for clarity below
     const containsAlpha = password.match(/[a-z]/g);
     const containsNumber = password.match(/\d+/g);
     const containsSpecialChar = password.match(/[^a-zA-Z0-9]+/g);
@@ -83,7 +83,7 @@ class PasswordInput extends React.Component {
         <div style={{ float: 'left'}}>
           {
             showTips && password.length > 0 &&
-            <ul className="unstyled">
+            <ul style={{ listStyleType: 'none', margin: 0}}>
               {!containsAlpha && <li>Add alphabetical character.</li>}
               {!containsNumber && <li>Add number.</li>}
               {!containsSpecialChar && <li>Add special character.</li>}
@@ -101,7 +101,7 @@ PasswordInput.propTypes = {
   /**
    * Password value
    */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
 
   /**
    * Input label
