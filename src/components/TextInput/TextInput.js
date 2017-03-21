@@ -5,7 +5,7 @@ import './textInput.css';
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
  */
 const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  const inputStyle = {display: 'block'};
+  const inputStyle = {display: 'inline-block'};
   if (error && error.length > 0) {
     inputStyle.border = 'solid 1px red';
   }
@@ -62,12 +62,17 @@ TextInput.propTypes = {
   /**
    * Value
    */
-  value: PropTypes.string,
+  value: PropTypes.any,
 
   /**
    * String to display when error occurs
    */
-  error: PropTypes.string
+  error: PropTypes.string,
+
+  /**
+   * Child component to display next to the input
+   */
+  children: PropTypes.node
 };
 
 export default TextInput;
