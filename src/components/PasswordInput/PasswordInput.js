@@ -80,7 +80,7 @@ class PasswordInput extends React.Component {
               }
           </TextInput>
         </div>
-        <div style={{ float: 'left'}}>
+        <div style={{ marginLeft: 170}}>
           {
             showTips && password.length > 0 &&
             <ul style={{ listStyleType: 'none', margin: 0}}>
