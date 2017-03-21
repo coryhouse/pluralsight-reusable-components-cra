@@ -30,8 +30,7 @@ class PasswordInput extends React.Component {
     if (event) event.preventDefault();
   }
 
-  // Default calculateScore method.
-  // Return a number from 0 to 100 that represents password quality.
+  // Returns a number from 0 to 100 that represents password quality.
   calculateScore(containsAlpha, containsNumber, containsSpecialChar) {
     let score = 0;
     const password = this.props.value;
@@ -102,12 +101,12 @@ PasswordInput.propTypes = {
   /**
    * Password value
    */
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
 
   /**
    * Input label
    */
-   label: PropTypes.string,
+  label: PropTypes.string,
 
   /**
    * Input name
