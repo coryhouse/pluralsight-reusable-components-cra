@@ -3,30 +3,27 @@ import './textInput.css';
 
 /**
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
- * Using plain CSS with BEM to encapsulate styling.
  */
 const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  let inputClass = '';
+  const inputStyle = {display: 'block'};
   if (error && error.length > 0) {
-    inputClass+= 'textinput__input--state-error';
+    inputStyle.border = 'solid 1px red';
   }
 
   return (
-    <div className="textinput">
+    <div style={{marginBottom: 16}}>
       <label htmlFor={name}>{label}</label>
-      { required && <span className="textinput__asterisk"> *</span> }
-      <div className="field">
-        <input
-          type={type}
-          name={name}
-          className={inputClass}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          {...props}/>
-          {children}
-        {error && <div className="textinput__error">{error}</div>}
-      </div>
+      { required && <span style={{color: 'red'}}> *</span> }
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        style={inputStyle}
+        {...props}/>
+        {children}
+      {error && <div style={{color: 'red'}}>{error}</div>}
     </div>
   );
 };
