@@ -23,7 +23,7 @@ const TextInput = ({htmlId, label, type = "text", required = false, onChange, pl
         style={inputStyle}
         {...props}/>
         {children}
-      {error && <div style={{color: 'red'}}>{error}</div>}
+      {error && <div className="error" style={{color: 'red'}}>{error}</div>}
     </div>
   );
 };
