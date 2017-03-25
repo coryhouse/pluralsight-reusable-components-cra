@@ -9,7 +9,7 @@ const RegistrationForm = ({email, password, errors, onChange, onSubmit, submitBu
   return (
     <div>
       <TextInput
-        name="email"
+        htmlId="registration-form-email"
         onChange={onChange}
         label="Email"
         value={email}
@@ -17,13 +17,12 @@ const RegistrationForm = ({email, password, errors, onChange, onSubmit, submitBu
         required />
 
       <PasswordInput
-        name="password"
+        htmlId="registration-form-password"
         value={password}
         onChange={onChange}
         showQuality
         showTips
         showVisibilityToggle
-        minLength={7}
         maxLength={50}
         error={errors.password} />
 
