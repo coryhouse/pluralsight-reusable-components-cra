@@ -30,37 +30,42 @@ class PasswordInput extends React.Component {
     if (event) event.preventDefault();
   }
 
+  containsAlpha = () => this.props.value.match(/[a-z]/g);
+
+  containsNumber = () => this.props.value.match(/\d+/g);
+
+  containsSpecialChar = () => this.props.value.match(/[^a-zA-Z0-9]+/g);
+
+  meetsMinLength = () => this.props.value.length >= this.props.minLength;
+
+  isValid = () => this.containsAlpha() && this.containsNumber() && this.containsSpecialChar() && this.meetsMinLength();
+
   // Returns a number from 0 to 100 that represents password quality.
-  calculateScore(containsAlpha, containsNumber, containsSpecialChar) {
+  calculateScore() {
     let score = 0;
     const password = this.props.value;
     if (!password) return 0;
-    if (containsAlpha) score += 10;
-    if (containsNumber) score += 10;
-    if (containsSpecialChar) score += 10;
+    if (this.containsAlpha()) score += 10;
+    if (this.containsNumber()) score += 10;
+    if (this.containsSpecialChar()) score += 10;
     score += password.length > 7 ? 70 : password.length * 10;
     return score;
   }
 
   render() {
-    const {value, label, error, name, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
+    const {htmlId, value, label, error, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
     const {showPassword} = this.state;
-    const password = value; // for clarity below
-    const containsAlpha = password.match(/[a-z]/g);
-    const containsNumber = password.match(/\d+/g);
-    const containsSpecialChar = password.match(/[^a-zA-Z0-9]+/g);
-    const score = this.calculateScore(containsAlpha, containsNumber, containsSpecialChar);
 
     return (
       <div>
         <div style={{ float: 'left', width: 165 }}>
           <TextInput
-            name={name}
+            htmlId={htmlId}
             label={label || 'Password'}
             placeholder={placeholder}
             type={showPassword ? 'text' : 'password'}
             onChange={onChange}
-            value={password}
+            value={value}
             maxLength={maxLength}
             error={error}
             required
@@ -76,18 +81,18 @@ class PasswordInput extends React.Component {
               }
               <br />
               {
-                showQuality && password.length > 0 && <ProgressBar percent={score} />
+                showQuality && value.length > 0 && <ProgressBar percent={this.calculateScore()} />
               }
           </TextInput>
         </div>
         <div style={{ marginLeft: 170}}>
           {
-            showTips && password.length > 0 &&
+            showTips && value.length > 0 &&
             <ul style={{ listStyleType: 'none', margin: 0}}>
-              {!containsAlpha && <li>Add alphabetical character.</li>}
-              {!containsNumber && <li>Add number.</li>}
-              {!containsSpecialChar && <li>Add special character.</li>}
-              {minLength && password.length < minLength && <li>Password must be at least {minLength} characters.</li>}
+              {!this.containsAlpha() && <li>Add alphabetical character.</li>}
+              {!this.containsNumber() && <li>Add number.</li>}
+              {!this.containsSpecialChar() && <li>Add special character.</li>}
+              {!this.meetsMinLength() && <li>Password must be at least {minLength} characters.</li>}
             </ul>
           }
         </div>
@@ -99,6 +104,11 @@ class PasswordInput extends React.Component {
 
 PasswordInput.propTypes = {
   /**
+   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
+   */
+  htmlId: PropTypes.string.isRequired,
+
+  /**
    * Password value
    */
   value: PropTypes.any.isRequired,
@@ -107,11 +117,6 @@ PasswordInput.propTypes = {
    * Input label
    */
   label: PropTypes.string,
-
-  /**
-   * Input name
-   */
-  name: PropTypes.string.isRequired,
 
   /**
    * Function called when password input value changes
