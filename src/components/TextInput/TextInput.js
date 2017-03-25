@@ -1,10 +1,9 @@
 import React, {PropTypes} from 'react';
-import './textInput.css';
 
 /**
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
  */
-const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+const TextInput = ({htmlId, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   const inputStyle = {display: 'inline-block'};
   if (error && error.length > 0) {
     inputStyle.border = 'solid 1px red';
@@ -12,11 +11,12 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
 
   return (
     <div style={{marginBottom: 16}}>
-      <label htmlFor={name}>{label}</label>
-      { required && <span style={{color: 'red'}}> *</span> }
+      <label style={{display: 'block'}} htmlFor={htmlId}>
+        {label} { required && <span style={{color: 'red'}}> *</span> }
+      </label>
       <input
         type={type}
-        name={name}
+        id={htmlId}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -30,9 +30,9 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
 
 TextInput.propTypes = {
   /**
-   * Input name
+   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
    */
-  name: PropTypes.string.isRequired,
+  htmlId: PropTypes.string.isRequired,
 
   /**
    * Input label
