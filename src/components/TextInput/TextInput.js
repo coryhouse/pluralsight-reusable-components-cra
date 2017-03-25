@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import Label from '../Label';
 
 const TextInput = ({htmlId, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   const inputStyle = {display: 'inline-block'};
@@ -8,9 +9,7 @@ const TextInput = ({htmlId, label, type = "text", required = false, onChange, pl
 
   return (
     <div style={{marginBottom: 16}}>
-      <label style={{display: 'block'}} htmlFor={htmlId}>
-        {label} { required && <span style={{color: 'red'}}> *</span> }
-      </label>
+      <Label htmlFor={htmlId} label={label} required={required} />
       <input
         type={type}
         id={htmlId}
@@ -28,7 +27,7 @@ const TextInput = ({htmlId, label, type = "text", required = false, onChange, pl
 TextInput.propTypes = {
   htmlId: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['text', 'number', 'date', 'password']),
+  type: PropTypes.oneOf(['text', 'number', 'password']),
   required: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
