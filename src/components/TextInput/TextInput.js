@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import Label from '../Label';
 
 /**
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
@@ -11,9 +12,7 @@ const TextInput = ({htmlId, label, type = "text", required = false, onChange, pl
 
   return (
     <div style={{marginBottom: 16}}>
-      <label style={{display: 'block'}} htmlFor={htmlId}>
-        {label} { required && <span style={{color: 'red'}}> *</span> }
-      </label>
+      <Label htmlFor={htmlId} label={label} required={required} />
       <input
         type={type}
         id={htmlId}
