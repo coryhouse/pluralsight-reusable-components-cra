@@ -18,16 +18,16 @@ storiesOf('ProgressBar', module)
 
 storiesOf('TextInput', module)
   .add('with minimal features enabled', () => (
-    <TextInput name="firstname" value="dur" label="First Name" onChange={() => {}}></TextInput>
+    <TextInput htmlId="text-input-min-features" value="dur" label="First Name" onChange={() => {}}></TextInput>
   ))
   .add('with required field', () => (
-    <TextInput name="firstname" label="First Name" onChange={() => {}} required></TextInput>
+    <TextInput htmlId="text-input-reqd" label="First Name" onChange={() => {}} required></TextInput>
   ))
   .add('with error', () => (
-    <TextInput name="firstname" label="First Name" onChange={() => {}} required error="First name is required."></TextInput>
+    <TextInput htmlId="text-input-error" label="First Name" onChange={() => {}} required error="First name is required."></TextInput>
   ))
   .add('with placeholder', () => (
-    <TextInput name="firstname" label="First Name" onChange={() => {}} placeholder="First name"></TextInput>
+    <TextInput htmlId="text-input-placeholder" label="First Name" onChange={() => {}} placeholder="First name"></TextInput>
   ))
 
 storiesOf('EyeIcon', module)
