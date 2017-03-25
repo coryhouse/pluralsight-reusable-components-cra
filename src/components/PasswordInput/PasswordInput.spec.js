@@ -9,7 +9,9 @@ import PasswordInput from './PasswordInput';
 // Behavioral test
 it('Toggles input type when show/hide password clicked', () => {
   const wrapper = shallow(<PasswordInput
+    htmlId="test"
     name="test"
+    value=""
     onChange={() => {}}
     showVisibilityToggle
     />
@@ -26,6 +28,7 @@ it('Toggles input type when show/hide password clicked', () => {
 
 test('should display tips with bad password', () => {
   const tree = renderer.create(<PasswordInput
+    htmlId="test"
     name="test"
     onChange={() => {}}
     showTips={true}
@@ -35,6 +38,7 @@ test('should display tips with bad password', () => {
 
 test('should show no tips with good password', () => {
   const tree = renderer.create(<PasswordInput
+    htmlId="test"
     name="test"
     onChange={() => {}}
     showTips={true}
@@ -44,6 +48,7 @@ test('should show no tips with good password', () => {
 
 test('should hide password quality by default', () => {
   const tree = renderer.create(<PasswordInput
+    htmlId="test"
     name="test"
     onChange={() => {}}
     value="Uisi38#8iad" />).toJSON();
@@ -52,6 +57,7 @@ test('should hide password quality by default', () => {
 
 test('should show password quality when enabled and a password is entered', () => {
   const tree = renderer.create(<PasswordInput
+    htmlId="test"
     name="test"
     onChange={() => {}}
     showQuality
@@ -61,6 +67,7 @@ test('should show password quality when enabled and a password is entered', () =
 
 test('should hide password quality when enabled but no password is entered', () => {
   const tree = renderer.create(<PasswordInput
+    htmlId="test"
     name="test"
     onChange={() => {}}
     showQuality
