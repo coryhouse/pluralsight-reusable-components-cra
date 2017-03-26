@@ -5,7 +5,7 @@ import PasswordInput from '../PasswordInput';
 class RegistrationForm extends React.Component {
   static defaultProps = {
     confirmationMessage: "Thanks for registering!",
-    minPasswordLength: 16
+    minPasswordLength: 8
   };
 
   constructor(props) {
