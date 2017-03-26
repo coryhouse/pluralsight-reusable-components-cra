@@ -17,6 +17,7 @@ class ExampleJustToggleVisibility extends React.Component {
     return (
       <div>
         <PasswordInput
+          htmlId="password-input-just-toggle-visibility"
           name="password"
           onChange={(event) => this.setState({ password: event.target.value })}
           value={this.state.password}
