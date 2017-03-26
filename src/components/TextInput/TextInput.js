@@ -34,6 +34,11 @@ TextInput.propTypes = {
   htmlId: PropTypes.string.isRequired,
 
   /**
+   * Input name. Recommend setting this to match object's property so a single change handler can be used.
+   */
+  name: PropTypes.string.isRequired,
+
+  /**
    * Input label
    */
   label: PropTypes.string.isRequired,
