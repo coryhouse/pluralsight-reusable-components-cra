@@ -30,15 +30,25 @@ class PasswordInput extends React.Component {
     if (event) event.preventDefault();
   }
 
-  containsAlpha = () => this.props.value.match(/[a-z]/g);
+  containsAlpha() {
+    return this.props.value.match(/[a-z]/g);
+  }
 
-  containsNumber = () => this.props.value.match(/\d+/g);
+  containsNumber() {
+    return this.props.value.match(/\d+/g);
+  }
 
-  containsSpecialChar = () => this.props.value.match(/[^a-zA-Z0-9]+/g);
+  containsSpecialChar() {
+    return this.props.value.match(/[^a-zA-Z0-9]+/g);
+  }
 
-  meetsMinLength = () => this.props.value.length >= this.props.minLength;
+  meetsMinLength() {
+    return this.props.value.length >= this.props.minLength;
+  }
 
-  isValid = () => this.containsAlpha() && this.containsNumber() && this.containsSpecialChar() && this.meetsMinLength();
+  isValid() {
+    return false; //this.containsAlpha() && this.containsNumber() && this.containsSpecialChar() && this.meetsMinLength();
+  }
 
   // Returns a number from 0 to 100 that represents password quality.
   calculateScore() {
@@ -107,6 +117,11 @@ PasswordInput.propTypes = {
    * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
    */
   htmlId: PropTypes.string.isRequired,
+
+  /**
+   * Input name. Recommend setting this to match object's property so a single change handler can be used by convention.
+   */
+  name: PropTypes.string.isRequired,
 
   /**
    * Password value
