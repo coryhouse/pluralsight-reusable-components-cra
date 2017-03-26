@@ -11,8 +11,6 @@ class PasswordInput extends React.Component {
     minLength: 5,
     maxLength: 50,
     showVisibilityToggle: false,
-    showQuality: false,
-    showTips: false,
     label: 'Password'
   };
 
@@ -24,47 +22,15 @@ class PasswordInput extends React.Component {
   }
 
   toggleShowPassword = (event) => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return { showPassword: !prevState.showPassword };
     });
     if (event) event.preventDefault();
   }
 
-  containsAlpha() {
-    return this.props.value.match(/[a-z]/g);
-  }
-
-  containsNumber() {
-    return this.props.value.match(/\d+/g);
-  }
-
-  containsSpecialChar() {
-    return this.props.value.match(/[^a-zA-Z0-9]+/g);
-  }
-
-  meetsMinLength() {
-    return this.props.value.length >= this.props.minLength;
-  }
-
-  isValid() {
-    return false; //this.containsAlpha() && this.containsNumber() && this.containsSpecialChar() && this.meetsMinLength();
-  }
-
-  // Returns a number from 0 to 100 that represents password quality.
-  calculateScore() {
-    let score = 0;
-    const password = this.props.value;
-    if (!password) return 0;
-    if (this.containsAlpha()) score += 10;
-    if (this.containsNumber()) score += 10;
-    if (this.containsSpecialChar()) score += 10;
-    score += password.length > 7 ? 70 : password.length * 10;
-    return score;
-  }
-
   render() {
-    const {htmlId, value, label, error, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
-    const {showPassword} = this.state;
+    const { htmlId, value, label, error, onChange, placeholder, maxLength, showVisibilityToggle, quality, tips, ...props } = this.props;
+    const { showPassword } = this.state;
 
     return (
       <div>
@@ -80,29 +46,25 @@ class PasswordInput extends React.Component {
             error={error}
             required
             {...props}>
-              {
-                showVisibilityToggle &&
-                <a
-                  href="#"
-                  onClick={this.toggleShowPassword}
-                  style={{marginLeft: 5}}>
-                  <EyeIcon />
-                </a>
-              }
-              <br />
-              {
-                showQuality && value.length > 0 && <ProgressBar percent={this.calculateScore()} />
-              }
+            {
+              showVisibilityToggle &&
+              <a
+                href="#"
+                onClick={this.toggleShowPassword}
+                style={{ marginLeft: 5 }}>
+                <EyeIcon />
+              </a>
+            }
+            {
+              quality && value.length > 0 && <ProgressBar percent={quality} />
+            }
           </TextInput>
         </div>
-        <div style={{ marginLeft: 170}}>
+        <div style={{ marginLeft: 170 }}>
           {
-            showTips && value.length > 0 &&
-            <ul style={{ listStyleType: 'none', margin: 0}}>
-              {!this.containsAlpha() && <li>Add alphabetical character.</li>}
-              {!this.containsNumber() && <li>Add number.</li>}
-              {!this.containsSpecialChar() && <li>Add special character.</li>}
-              {!this.meetsMinLength() && <li>Password must be at least {minLength} characters.</li>}
+            value.length > 0 && tips.length > 0 &&
+            <ul style={{ listStyleType: 'none', margin: 0 }}>
+              {tips.map(tip => <li key={tip}>{tip}</li>)}
             </ul>
           }
         </div>
@@ -159,9 +121,9 @@ PasswordInput.propTypes = {
   showVisibilityToggle: PropTypes.bool,
 
   /**
-   * Set to true to display password quality visually via ProgressBar
+   * Display password quality visually via ProgressBar, accepts a number between 0 and 100
    */
-  showQuality: PropTypes.bool,
+  quality: PropTypes.number,
 
   /**
    * Validation error to display
@@ -169,9 +131,9 @@ PasswordInput.propTypes = {
   error: PropTypes.string,
 
   /**
-   * Set to true to show tips for improving the password
+   * Array of tips for improving password quality
    */
-  showTips: PropTypes.bool
+  tips: PropTypes.array
 };
 
 export default PasswordInput;
