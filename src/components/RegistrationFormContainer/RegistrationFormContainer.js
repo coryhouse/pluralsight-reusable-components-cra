@@ -20,8 +20,10 @@ class RegistrationFormContainer extends React.Component {
       },
       errors: {},
       submitted: false,
-      passwordMinLength: 8
     };
+
+    // Need not be in state since not used in render
+    this.passwordMinLength = 8
   }
 
   onChange = (event) => {
@@ -31,10 +33,10 @@ class RegistrationFormContainer extends React.Component {
   }
 
   // Returns a number from 0 to 100 that represents password quality.
-  passwordQuality({hasAlpha, hasNumber, hasSpecialChar, meetsMinLength}) {
+  passwordQuality(password) {
     let score = 0;
-    const {password} = this.state.user;
     if (!password) return null;
+    const {hasAlpha, hasNumber, hasSpecialChar, meetsMinLength} = this.getPasswordAttributes(password);
     if (hasAlpha) score += 10;
     if (hasNumber) score += 10;
     if (hasSpecialChar) score += 10;
@@ -43,7 +45,7 @@ class RegistrationFormContainer extends React.Component {
       score += 70;
     } else {
       if (password.length * 10 > 60) {
-        // if password hasn't reached minimum length, only return 60, regardless of length.
+        // If password hasn't reached minimum length, only return 60, regardless of length.
         // This way the user doesn't see a full 100% quality green bar until min length is reached.
         score += 60;
       } else {
@@ -53,54 +55,48 @@ class RegistrationFormContainer extends React.Component {
     return score;
   }
 
-  passwordQualityTips({hasAlpha, hasNumber, hasSpecialChar, meetsMinLength}) {
-    const tips = [];
-    if (!hasAlpha) tips.push('Password must contain an alphabetical character.');
-    if (!hasNumber) tips.push('Password must contain a number.');
-    if (!hasSpecialChar) tips.push('Password must contain a special character.');
-    if (!meetsMinLength) tips.push(`Password must be at least ${this.state.passwordMinLength} characters.`);
-    return tips;
+  getPasswordAttributes(password) {
+    return {
+      hasAlpha: password.match(/[a-z]/g),
+      hasNumber: password.match(/\d+/g),
+      hasSpecialChar: password.match(/[^a-zA-Z0-9]+/g),
+      meetsMinLength: password.length >= this.passwordMinLength
+    };
   }
 
-  onSubmit = () => {
+  validate({email, password}) {
     const errors = {};
-    const {user} = this.state;
 
-    if (!user.email) errors.email = 'Email required.';
-    const passwordAttributes = this.getPasswordAttributes();
-    const passwordQualityTips = this.passwordQualityTips(passwordAttributes)
-    if (passwordQualityTips.length > 0) {
-      errors.password = passwordQualityTips[0];
+    if (!email) {
+      errors.email = 'Email required.';
+    }
+
+    // For now, just enforcing a minimum length.
+    if (password.length < this.passwordMinLength) {
+      errors.password = `Password must be at least ${this.passwordMinLength} characters.`;
     }
 
     this.setState({errors});
-    const validationPassed = Object.getOwnPropertyNames(errors).length === 0;
+    const formIsValid = Object.getOwnPropertyNames(errors).length === 0;
+    return formIsValid;
+  }
 
-    if (validationPassed) {
+  onSubmit = () => {
+    const {user} = this.state;
+    const formIsValid = this.validate(user);
+    if (formIsValid) {
       this.props.onSubmit(user);
       this.setState({submitted: true});
     }
   }
 
-  getPasswordAttributes() {
-    const {password} = this.state.user;
-    return {
-      hasAlpha: password.match(/[a-z]/g),
-      hasNumber: password.match(/\d+/g),
-      hasSpecialChar: password.match(/[^a-zA-Z0-9]+/g),
-      meetsMinLength: password.length >= this.state.passwordMinLength
-    };
-  }
-
   render() {
-    const {errors, submitted, passwordMinLength} = this.state;
+    const {errors, submitted} = this.state;
     const {email, password} = this.state.user;
-    const {confirmationMessage} = this.props;
-    const passwordAttributes = this.getPasswordAttributes();
 
     return (
       submitted ?
-      <h2>{confirmationMessage}</h2> :
+      <h2>{this.props.confirmationMessage}</h2> :
       <div>
         <TextInput
           htmlId="registration-form-email"
@@ -116,10 +112,8 @@ class RegistrationFormContainer extends React.Component {
           name="password"
           value={password}
           onChange={this.onChange}
-          quality={this.passwordQuality(passwordAttributes)}
-          tips={this.passwordQualityTips(passwordAttributes)}
+          quality={this.passwordQuality(password)}
           showVisibilityToggle
-          minLength={passwordMinLength}
           maxLength={50}
           error={errors.password} />
 
