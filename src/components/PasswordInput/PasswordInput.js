@@ -21,7 +21,7 @@ class PasswordInput extends React.Component {
   }
 
   toggleShowPassword = (event) => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return { showPassword: !prevState.showPassword };
     });
     if (event) event.preventDefault();
