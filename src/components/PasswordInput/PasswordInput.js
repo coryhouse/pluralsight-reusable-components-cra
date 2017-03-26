@@ -8,7 +8,6 @@ import TextInput from '../TextInput';
  */
 class PasswordInput extends React.Component {
   static defaultProps = {
-    minLength: 5,
     maxLength: 50,
     showVisibilityToggle: false,
     label: 'Password'
@@ -29,47 +28,34 @@ class PasswordInput extends React.Component {
   }
 
   render() {
-    const { htmlId, value, label, error, onChange, placeholder, maxLength, showVisibilityToggle, quality, tips, ...props } = this.props;
+    const { htmlId, value, label, error, onChange, placeholder, maxLength, showVisibilityToggle, quality, ...props } = this.props;
     const { showPassword } = this.state;
 
     return (
-      <div>
-        <div style={{ float: 'left', width: 165 }}>
-          <TextInput
-            htmlId={htmlId}
-            label={label || 'Password'}
-            placeholder={placeholder}
-            type={showPassword ? 'text' : 'password'}
-            onChange={onChange}
-            value={value}
-            maxLength={maxLength}
-            error={error}
-            required
-            {...props}>
-            {
-              showVisibilityToggle &&
-              <a
-                href="#"
-                onClick={this.toggleShowPassword}
-                style={{ marginLeft: 5 }}>
-                <EyeIcon />
-              </a>
-            }
-            {
-              quality && value.length > 0 && <ProgressBar percent={quality} />
-            }
-          </TextInput>
-        </div>
-        <div style={{ marginLeft: 170 }}>
-          {
-            value.length > 0 && tips.length > 0 &&
-            <ul style={{ listStyleType: 'none', margin: 0 }}>
-              {tips.map(tip => <li key={tip}>{tip}</li>)}
-            </ul>
-          }
-        </div>
-        <div style={{ clear: 'both' }}></div>
-      </div>
+      <TextInput
+        htmlId={htmlId}
+        label={label || 'Password'}
+        placeholder={placeholder}
+        type={showPassword ? 'text' : 'password'}
+        onChange={onChange}
+        value={value}
+        maxLength={maxLength}
+        error={error}
+        required
+        {...props}>
+        {
+          showVisibilityToggle &&
+          <a
+            href="#"
+            onClick={this.toggleShowPassword}
+            style={{ marginLeft: 5 }}>
+            <EyeIcon />
+          </a>
+        }
+        {
+          quality && value.length > 0 && <ProgressBar percent={quality} />
+        }
+      </TextInput>
     );
   }
 }
@@ -106,11 +92,6 @@ PasswordInput.propTypes = {
   maxLength: PropTypes.number.isRequired,
 
   /**
-   * Min password length accepted
-   */
-  minLength: PropTypes.number,
-
-  /**
    * Placeholder displayed when no password is entered
    */
   placeholder: PropTypes.string,
@@ -128,12 +109,7 @@ PasswordInput.propTypes = {
   /**
    * Validation error to display
    */
-  error: PropTypes.string,
-
-  /**
-   * Array of tips for improving password quality
-   */
-  tips: PropTypes.array
+  error: PropTypes.string
 };
 
 export default PasswordInput;
