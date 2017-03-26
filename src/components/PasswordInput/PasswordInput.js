@@ -50,7 +50,7 @@ class PasswordInput extends React.Component {
   }
 
   render() {
-    const {htmlId, value, label, error, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
+    const {htmlId, name, value, label, error, onChange, placeholder, maxLength, minLength, showVisibilityToggle, showQuality, showTips, ...props} = this.props;
     const {showPassword} = this.state;
 
     return (
@@ -101,6 +101,7 @@ class PasswordInput extends React.Component {
 
 PasswordInput.propTypes = {
   htmlId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   value: PropTypes.any.isRequired,
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,

@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import Label from '../Label';
 
-const TextInput = ({htmlId, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+const TextInput = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   const inputStyle = {display: 'inline-block'};
   if (error && error.length > 0) {
     inputStyle.border = 'solid 1px red';
@@ -13,6 +13,7 @@ const TextInput = ({htmlId, label, type = "text", required = false, onChange, pl
       <input
         type={type}
         id={htmlId}
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -26,6 +27,7 @@ const TextInput = ({htmlId, label, type = "text", required = false, onChange, pl
 
 TextInput.propTypes = {
   htmlId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['text', 'number', 'password']),
   required: PropTypes.bool,
