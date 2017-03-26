@@ -7,7 +7,8 @@ import PasswordInput from '../PasswordInput';
  */
 class RegistrationForm extends React.Component {
   static defaultProps = {
-    confirmationMessage: "Thanks for registering!"
+    confirmationMessage: "Thanks for registering!",
+    minPasswordLength: 16
   };
 
   constructor(props) {
@@ -21,9 +22,6 @@ class RegistrationForm extends React.Component {
       errors: {},
       submitted: false,
     };
-
-    // Need not be in state since not used in render
-    this.passwordMinLength = 8
   }
 
   onChange = (event) => {
@@ -33,31 +31,13 @@ class RegistrationForm extends React.Component {
   }
 
   // Returns a number from 0 to 100 that represents password quality.
+  // For simplicity, just returning % of min length entered.
+  // Could enhance with checks for number, special char, unique characters, etc.
   passwordQuality(password) {
     if (!password) return null;
-    let score = 0;
-    const {hasAlpha, hasNumber, hasSpecialChar, meetsMinLength} = this.getPasswordAttributes(password);
-    if (hasAlpha) score += 10;
-    if (hasNumber) score += 10;
-    if (hasSpecialChar) score += 10;
-
-    if (meetsMinLength) {
-      score += 70;
-    } else {
-      // Password hasn't reached minimum length, so cap score to 60, regardless of length.
-      // This way the user doesn't see a full 100% quality green bar until min length is reached.
-      score += (password.length * 10 > 60) ? 60 : password.length * 10;
-    }
-    return score;
-  }
-
-  getPasswordAttributes(password) {
-    return {
-      hasAlpha: password.match(/[a-z]/g),
-      hasNumber: password.match(/\d+/g),
-      hasSpecialChar: password.match(/[^a-zA-Z0-9]+/g),
-      meetsMinLength: password.length >= this.passwordMinLength
-    };
+    if (password.length >= this.props.minPasswordLength) return 100;
+    const percentOfMinLength = parseInt(password.length/this.props.minPasswordLength * 100, 10);
+    return percentOfMinLength;
   }
 
   validate({email, password}) {
@@ -67,8 +47,7 @@ class RegistrationForm extends React.Component {
       errors.email = 'Email required.';
     }
 
-    // For now, just enforcing a minimum length.
-    if (password.length < this.passwordMinLength) {
+    if (password.length < this.props.minPasswordLength) {
       errors.password = `Password must be at least ${this.passwordMinLength} characters.`;
     }
 
@@ -128,7 +107,12 @@ RegistrationForm.propTypes = {
   /**
    * Called when form is submitted
    */
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+
+  /**
+   * Minimum password length
+   */
+  minPasswordLength: PropTypes.number
 }
 
 export default RegistrationForm;
