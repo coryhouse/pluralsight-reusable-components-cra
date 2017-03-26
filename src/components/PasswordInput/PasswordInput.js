@@ -3,9 +3,6 @@ import ProgressBar from '../ProgressBar';
 import EyeIcon from '../EyeIcon';
 import TextInput from '../TextInput';
 
-/**
- * Password input with integrated label, quality tips, and show password toggle.
- */
 class PasswordInput extends React.Component {
   static defaultProps = {
     maxLength: 50,
