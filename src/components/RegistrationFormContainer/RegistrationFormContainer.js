@@ -34,8 +34,8 @@ class RegistrationFormContainer extends React.Component {
 
   // Returns a number from 0 to 100 that represents password quality.
   passwordQuality(password) {
-    let score = 0;
     if (!password) return null;
+    let score = 0;
     const {hasAlpha, hasNumber, hasSpecialChar, meetsMinLength} = this.getPasswordAttributes(password);
     if (hasAlpha) score += 10;
     if (hasNumber) score += 10;
@@ -44,13 +44,9 @@ class RegistrationFormContainer extends React.Component {
     if (meetsMinLength) {
       score += 70;
     } else {
-      if (password.length * 10 > 60) {
-        // If password hasn't reached minimum length, only return 60, regardless of length.
-        // This way the user doesn't see a full 100% quality green bar until min length is reached.
-        score += 60;
-      } else {
-        score += password.length * 10;
-      }
+      // Password hasn't reached minimum length, so cap score to 60, regardless of length.
+      // This way the user doesn't see a full 100% quality green bar until min length is reached.
+      score += (password.length * 10 > 60) ? 60 : password.length * 10;
     }
     return score;
   }
