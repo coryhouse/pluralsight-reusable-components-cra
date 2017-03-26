@@ -1,8 +1,10 @@
 import React, {PropTypes} from 'react';
-import RegistrationForm from 'ps-ui/RegistrationForm';
+import TextInput from '../TextInput';
+import PasswordInput from '../PasswordInput';
 
 /**
- * Easily create a registration form with built-in validation. Just pass a function to call when the user's information is submitted.
+ * Registration form with built-in validation.
+ * Just pass a function to call when the user's information is submitted.
  */
 class RegistrationFormContainer extends React.Component {
   static defaultProps = {
@@ -31,6 +33,11 @@ class RegistrationFormContainer extends React.Component {
   onSubmit = () => {
     const errors = {};
     const {user} = this.state;
+
+    // Using ref to call isValid on PasswordInput component.
+    // Downside: now this component is tightly coupled to the child
+    debugger;
+    let passwordIsValid = this.passwordInput.isValid();
     if (!user.email) errors.email = 'Email required.';
     if (!user.password) errors.password = 'Password required.';
     this.setState({errors});
@@ -50,12 +57,30 @@ class RegistrationFormContainer extends React.Component {
     return (
       submitted ?
       <h2>{confirmationMessage}</h2> :
-      <RegistrationForm
-        email={email}
-        password={password}
-        errors={errors}
-        onChange={this.onChange}
-        onSubmit={this.onSubmit} />
+      <div>
+        <TextInput
+          htmlId="registration-form-email"
+          name="email"
+          onChange={this.onChange}
+          label="Email"
+          value={email}
+          error={errors.email}
+          required />
+
+        <PasswordInput
+          htmlId="registration-form-password"
+          name="password"
+          value={password}
+          onChange={this.onChange}
+          showQuality
+          showTips
+          showVisibilityToggle
+          maxLength={50}
+          error={errors.password}
+          ref={(input) => { this.passwordInput = input; }} />
+
+        <input type="submit" value="Register" onClick={this.onSubmit} />
+      </div>
     )
   }
 }
