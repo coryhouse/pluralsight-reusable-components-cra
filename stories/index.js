@@ -4,6 +4,7 @@ import ProgressBar from '../src/components/ProgressBar';
 import TextInput from '../src/components/TextInput';
 import EyeIcon from '../src/components/EyeIcon'
 import PasswordInputExampleAllFeatures from './Examples/PasswordInput/PasswordInputExampleAllFeatures';
+import RegistrationForm from '../src/components/RegistrationForm';
 
 storiesOf('ProgressBar', module)
   .add('20 percent', () => (
@@ -18,16 +19,16 @@ storiesOf('ProgressBar', module)
 
 storiesOf('TextInput', module)
   .add('with minimal features enabled', () => (
-    <TextInput htmlId="text-input-min-features" value="dur" label="First Name" onChange={() => {}}></TextInput>
+    <TextInput htmlId="text-input-min-features" name="email" value="dur" label="Email" onChange={() => {}}></TextInput>
   ))
   .add('with required field', () => (
-    <TextInput htmlId="text-input-reqd" label="First Name" onChange={() => {}} required></TextInput>
+    <TextInput htmlId="text-input-reqd" name="email" label="Email" onChange={() => {}} required></TextInput>
   ))
   .add('with error', () => (
-    <TextInput htmlId="text-input-error" label="First Name" onChange={() => {}} required error="First name is required."></TextInput>
+    <TextInput htmlId="text-input-error" name="email" label="Email" onChange={() => {}} required error="First name is required."></TextInput>
   ))
   .add('with placeholder', () => (
-    <TextInput htmlId="text-input-placeholder" label="First Name" onChange={() => {}} placeholder="First name"></TextInput>
+    <TextInput htmlId="text-input-placeholder" name="email" label="Email" onChange={() => {}} placeholder="First name"></TextInput>
   ))
 
 storiesOf('EyeIcon', module)
@@ -38,4 +39,9 @@ storiesOf('EyeIcon', module)
 storiesOf('PasswordInput', module)
   .add('All features enabled', () => (
     <PasswordInputExampleAllFeatures />
+  ))
+
+storiesOf('RegistrationForm', module)
+  .add('Demo', () => (
+    <RegistrationForm />
   ))
