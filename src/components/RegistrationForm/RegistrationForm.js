@@ -37,6 +37,15 @@ class RegistrationForm extends React.Component {
     return percentOfMinLength;
   }
 
+  onSubmit = () => {
+    const {user} = this.state;
+    const formIsValid = this.validate(user);
+    if (formIsValid) {
+      this.props.onSubmit(user);
+      this.setState({submitted: true});
+    }
+  }
+
   validate({email, password}) {
     const errors = {};
     const {minPasswordLength} = this.props;
@@ -47,15 +56,6 @@ class RegistrationForm extends React.Component {
     this.setState({errors});
     const formIsValid = Object.getOwnPropertyNames(errors).length === 0;
     return formIsValid;
-  }
-
-  onSubmit = () => {
-    const {user} = this.state;
-    const formIsValid = this.validate(user);
-    if (formIsValid) {
-      this.props.onSubmit(user);
-      this.setState({submitted: true});
-    }
   }
 
   render() {
