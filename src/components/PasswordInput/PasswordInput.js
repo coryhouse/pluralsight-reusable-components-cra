@@ -60,10 +60,10 @@ class PasswordInput extends React.Component {
 PasswordInput.propTypes = {
   htmlId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any,
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  maxLength: PropTypes.number.isRequired,
+  maxLength: PropTypes.number,
   placeholder: PropTypes.string,
   showVisibilityToggle: PropTypes.bool,
   quality: PropTypes.number,
