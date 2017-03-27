@@ -23,7 +23,6 @@ class PasswordInputExampleAllFeatures extends React.Component {
           name="password"
           onChange={event => this.setState({ password: event.target.value })}
           value={this.state.password}
-          minLength={8}
           placeholder="Enter password"
           showVisibilityToggle
           quality={this.getQuality()}
