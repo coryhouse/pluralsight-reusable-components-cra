@@ -19,13 +19,13 @@ storiesOf('ProgressBar', module)
 
 storiesOf('TextInput', module)
   .add('with minimal features enabled', () => (
-    <TextInput htmlId="text-input-min-features" name="email" value="dur" label="Email" onChange={() => {}}></TextInput>
+    <TextInput htmlId="text-input-min-features" name="email" label="Email" onChange={() => {}}></TextInput>
   ))
   .add('with required field', () => (
     <TextInput htmlId="text-input-reqd" name="email" label="Email" onChange={() => {}} required></TextInput>
   ))
   .add('with error', () => (
-    <TextInput htmlId="text-input-error" name="email" label="Email" onChange={() => {}} required error="First name is required."></TextInput>
+    <TextInput htmlId="text-input-error" name="email" label="Email" onChange={() => {}} required error="Email is required."></TextInput>
   ))
   .add('with placeholder', () => (
     <TextInput htmlId="text-input-placeholder" name="email" label="Email" onChange={() => {}} placeholder="First name"></TextInput>
