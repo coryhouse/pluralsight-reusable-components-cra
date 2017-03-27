@@ -74,7 +74,7 @@ PasswordInput.propTypes = {
   /**
    * Password value
    */
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any,
 
   /**
    * Input label
@@ -89,7 +89,7 @@ PasswordInput.propTypes = {
   /**
    * Max password length accepted
    */
-  maxLength: PropTypes.number.isRequired,
+  maxLength: PropTypes.number,
 
   /**
    * Placeholder displayed when no password is entered
