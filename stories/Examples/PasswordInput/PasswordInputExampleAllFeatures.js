@@ -12,7 +12,8 @@ class PasswordInputExampleAllFeatures extends React.Component {
 
   getQuality() {
     const length = this.state.password.length;
-    return length > 10 ? 100 : length * 10;
+    const minLength = 10;
+    return length >= minLength ? 100 : length * 10;
   }
 
   render() {
