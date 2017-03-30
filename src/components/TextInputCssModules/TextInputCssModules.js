@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
+import Label from 'ps-ui/Label';
 import styles from './textInput.css';
 
 /**
  * Abstraction over text input to enforce validation, label, and required field marker consistency
  */
-const TextInputCssModules = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+const TextInputCssModules = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   let inputClass = '';
   if (error && error.length > 0) {
     inputClass+= styles.inputError;
@@ -12,8 +13,7 @@ const TextInputCssModules = ({name, label, type = "text", required = false, onCh
 
   return (
     <div className={styles.fieldset}>
-      <label htmlFor={name}>{label}</label>
-      { required && <span className={styles.asterisk}> *</span> }
+      <Label htmlFor={htmlId} label={label} required={required} />
       <div>
         <input
           type={type}
@@ -31,6 +31,11 @@ const TextInputCssModules = ({name, label, type = "text", required = false, onCh
 };
 
 TextInputCssModules.propTypes = {
+  /**
+   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
+   */
+  htmlId: PropTypes.string.isRequired,
+
   /**
    * Input name
    */

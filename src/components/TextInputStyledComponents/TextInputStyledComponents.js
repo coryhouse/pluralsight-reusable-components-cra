@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
+import Label from 'ps-ui/Label';
 import styled from 'styled-components';
 
 /**
  * TextInput using styled-components
  */
-const TextInput = ({ name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props }) => {
-  const Asterisk = styled.span`
-    color: red;
-  `;
-
+const TextInput = ({ htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props }) => {
   const Error = styled.div`
     color: red;
   `
@@ -24,8 +21,7 @@ const TextInput = ({ name, label, type = "text", required = false, onChange, pla
 
   return (
     <Fieldset>
-      <label htmlFor={name}>{label}</label>
-      {required && <Asterisk> *</Asterisk>}
+      <Label htmlFor={htmlId} label={label} required={required} />
       <Input
         type={type}
         name={name}
@@ -40,6 +36,11 @@ const TextInput = ({ name, label, type = "text", required = false, onChange, pla
 };
 
 TextInput.propTypes = {
+  /**
+   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
+   */
+  htmlId: PropTypes.string.isRequired,
+
   /**
    * Input name
    */

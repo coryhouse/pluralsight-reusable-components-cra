@@ -1,11 +1,12 @@
 import React, {PropTypes} from 'react';
+import Label from 'ps-ui/Label';
 import './textInput.css';
 
 /**
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
  * Using BEM to encapsulate styling.
  */
-const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+const TextInputBem = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
   let inputClass = '';
   if (error && error.length > 0) {
     inputClass+= 'textinput__input--state-error';
@@ -13,8 +14,7 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
 
   return (
     <div className="textinput">
-      <label htmlFor={name}>{label}</label>
-      { required && <span className="textinput__asterisk"> *</span> }
+      <Label htmlFor={htmlId} label={label} required={required} />
       <div className="field">
         <input
           type={type}
@@ -31,7 +31,12 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
   );
 };
 
-TextInput.propTypes = {
+TextInputBem.propTypes = {
+  /**
+   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
+   */
+  htmlId: PropTypes.string.isRequired,
+
   /**
    * Input name
    */
@@ -73,4 +78,4 @@ TextInput.propTypes = {
   error: PropTypes.string
 };
 
-export default TextInput;
+export default TextInputBem;

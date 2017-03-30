@@ -1,14 +1,11 @@
 import React, {PropTypes} from 'react';
+import Label from '../Label';
 import styled from 'styled-components';
 
 /**
  * TextInput using styled-components
  */
 const TextInput = ({name, label, type = "text", required = false, onChange, placeholder, value, error, children, theme={ main: 'orange' }, ...props}) => {
-
-  const Asterisk = styled.span`
-    color: red;
-  `;
 
   const ErrorText = styled.div`
     color: red;
@@ -25,8 +22,7 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
 
   return (
     <Fieldset>
-      <label htmlFor={name}>{label}</label>
-      { required && <Asterisk> *</Asterisk> }
+      <Label htmlFor={htmlId} label={label} required={required} />
       <Input
         type={type}
         name={name}
