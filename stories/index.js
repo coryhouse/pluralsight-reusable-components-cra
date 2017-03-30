@@ -43,5 +43,5 @@ storiesOf('PasswordInput', module)
 
 storiesOf('RegistrationForm', module)
   .add('Demo', () => (
-    <RegistrationForm />
+    <RegistrationForm onSubmit={user => console.log(user)} />
   ))
