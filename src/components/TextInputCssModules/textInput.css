@@ -3,7 +3,7 @@ is scoped to the component automatically, so you don't have to spend time
 writing long, specific CSS selectors like we do with BEM. - they'll only apply
 to the component where this css is imported. :)
 */
-.asterisk, .error {
+.error {
   color: red;
 }
 
