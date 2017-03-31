@@ -9,6 +9,7 @@ export default class Example extends React.Component {
     return (
       <div>
       <TextInputCssModules
+        htmlId="text-input-css-modules-no-error"
         label="No Error"
         name="firstname"
         onChange={() => {}}
@@ -16,6 +17,7 @@ export default class Example extends React.Component {
        />
 
       <TextInputCssModules
+        htmlId="text-input-css-modules-with-error"
         label="With Error"
         name="firstname"
         onChange={() => {}}
