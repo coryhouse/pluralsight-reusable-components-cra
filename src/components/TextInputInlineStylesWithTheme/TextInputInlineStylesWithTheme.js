@@ -39,55 +39,15 @@ const TextInput = ({htmlId, name, label, type = "text", required = false, onChan
 };
 
 TextInput.propTypes = {
-  /**
-   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
-   */
   htmlId: PropTypes.string.isRequired,
-
-  /**
-   * Input name
-   */
   name: PropTypes.string.isRequired,
-
-  /**
-   * Input label
-   */
   label: PropTypes.string.isRequired,
-
-  /**
-   * Input type
-   */
   type: PropTypes.oneOf(['text', 'number', 'date', 'password']),
-
-  /**
-   * Mark label with asterisk if set to true
-   */
   required: PropTypes.bool,
-
-  /**
-   * Function to call onChange
-   */
   onChange: PropTypes.func.isRequired,
-
-  /**
-   * Placeholder to display when empty
-   */
   placeholder: PropTypes.string,
-
-  /**
-   * Value
-   */
   value: PropTypes.string,
-
-  /**
-   * String to display when error occurs
-   */
-  error: PropTypes.string,
-
-  /**
-   * Theme object
-   */
-  theme: PropTypes.object
+  error: PropTypes.string
 };
 
 export default TextInput;
