@@ -11,7 +11,7 @@ const TextInputBem = ({htmlId, name, label, type = "text", required = false, onC
     <div className="textinput">
       <Label htmlFor={htmlId} label={label} required={required} />
       <input
-        htmlId={htmlId}
+        id={htmlId}
         type={type}
         name={name}
         className={error && 'textinput__input--state-error'}
