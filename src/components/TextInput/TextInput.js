@@ -41,7 +41,7 @@ TextInput.propTypes = {
   /**
    * Input type
    */
-  type: PropTypes.oneOf(['text', 'number', 'date', 'password']),
+  type: PropTypes.oneOf(['text', 'number', 'password']),
 
   /**
    * Mark label with asterisk if set to true

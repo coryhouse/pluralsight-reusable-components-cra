@@ -38,44 +38,14 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
 };
 
 TextInput.propTypes = {
-  /**
-   * Input name
-   */
+  htmlId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-
-  /**
-   * Input label
-   */
   label: PropTypes.string.isRequired,
-
-  /**
-   * Input type
-   */
-  type: PropTypes.oneOf(['text', 'number', 'date', 'password']),
-
-  /**
-   * Mark label with asterisk if set to true
-   */
+  type: PropTypes.oneOf(['text', 'number', 'password']),
   required: PropTypes.bool,
-
-  /**
-   * Function to call onChange
-   */
   onChange: PropTypes.func.isRequired,
-
-  /**
-   * Placeholder to display when empty
-   */
   placeholder: PropTypes.string,
-
-  /**
-   * Value
-   */
   value: PropTypes.string,
-
-  /**
-   * String to display when error occurs
-   */
   error: PropTypes.string
 };
 

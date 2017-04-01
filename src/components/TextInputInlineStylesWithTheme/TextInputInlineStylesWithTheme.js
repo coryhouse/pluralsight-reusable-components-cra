@@ -43,7 +43,7 @@ TextInput.propTypes = {
   htmlId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['text', 'number', 'date', 'password']),
+  type: PropTypes.oneOf(['text', 'number', 'password']),
   required: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
