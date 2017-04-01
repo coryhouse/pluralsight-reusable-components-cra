@@ -1,9 +1,7 @@
 import React from 'react';
 import TextInputBem from 'ps-ui/TextInputBem';
 
-/**
- * With error
- */
+/** With error */
 export default class ExampleError extends React.Component {
   render() {
     return (

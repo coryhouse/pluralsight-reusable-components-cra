@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+/** Display progress between 0 and 100 percent on colorful horizontal bar. */
 class ProgressBar extends React.Component {
   static defaultProps = {
     height: 5
@@ -29,8 +30,13 @@ class ProgressBar extends React.Component {
 }
 
 ProgressBar.propTypes = {
+  /** Percent of progress completed */
   percent: PropTypes.number.isRequired,
+
+  /** Bar width */
   width: PropTypes.number.isRequired,
+
+  /** Bar height */
   height: PropTypes.number
 };
 

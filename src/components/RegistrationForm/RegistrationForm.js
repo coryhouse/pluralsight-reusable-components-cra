@@ -2,9 +2,7 @@ import React, {PropTypes} from 'react';
 import TextInput from '../TextInput';
 import PasswordInput from '../PasswordInput';
 
-/**
- * Registration form with built-in validation.
- */
+/** Registration form with built-in validation. */
 class RegistrationForm extends React.Component {
   static defaultProps = {
     confirmationMessage: "Thanks for registering!",
@@ -95,19 +93,13 @@ class RegistrationForm extends React.Component {
 }
 
 RegistrationForm.propTypes = {
-  /**
-   * Message displayed upon successful submission
-   */
+  /** Message displayed upon successful submission */
   confirmationMessage: PropTypes.string,
 
-  /**
-   * Called when form is submitted
-   */
+  /** Called when form is submitted */
   onSubmit: PropTypes.func.isRequired,
 
-  /**
-   * Minimum password length
-   */
+  /** Minimum password length */
   minPasswordLength: PropTypes.number
 }
 

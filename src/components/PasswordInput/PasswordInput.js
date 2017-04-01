@@ -3,9 +3,7 @@ import ProgressBar from '../ProgressBar';
 import EyeIcon from '../EyeIcon';
 import TextInput from '../TextInput';
 
-/**
- * Password input with integrated label, quality tips, and show password toggle.
- */
+/** Password input with integrated label, quality tips, and show password toggle. */
 class PasswordInput extends React.Component {
   static defaultProps = {
     maxLength: 50,
@@ -61,54 +59,34 @@ class PasswordInput extends React.Component {
 }
 
 PasswordInput.propTypes = {
-  /**
-   * Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing.
-   */
+  /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
   htmlId: PropTypes.string.isRequired,
 
-  /**
-   * Input name. Recommend setting this to match object's property so a single change handler can be used by convention.
-   */
+  /** Input name. Recommend setting this to match object's property so a single change handler can be used by convention.*/
   name: PropTypes.string.isRequired,
 
-  /**
-   * Password value
-   */
+  /** Password value */
   value: PropTypes.any,
 
-  /**
-   * Input label
-   */
+  /** Input label */
   label: PropTypes.string,
 
-  /**
-   * Function called when password input value changes
-   */
+  /** Function called when password input value changes */
   onChange: PropTypes.func.isRequired,
 
-  /**
-   * Max password length accepted
-   */
+  /** Max password length accepted */
   maxLength: PropTypes.number,
 
-  /**
-   * Placeholder displayed when no password is entered
-   */
+  /** Placeholder displayed when no password is entered */
   placeholder: PropTypes.string,
 
-  /**
-   * Set to true to show the toggle for displaying the currently entered password
-   */
+  /** Set to true to show the toggle for displaying the currently entered password */
   showVisibilityToggle: PropTypes.bool,
 
-  /**
-   * Display password quality visually via ProgressBar, accepts a number between 0 and 100
-   */
+  /** Display password quality visually via ProgressBar, accepts a number between 0 and 100 */
   quality: PropTypes.number,
 
-  /**
-   * Validation error to display
-   */
+  /** Validation error to display */
   error: PropTypes.string
 };
 
