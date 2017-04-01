@@ -11,19 +11,17 @@ const TextInputCssModules = ({htmlId, name, label, type = "text", required = fal
   return (
     <div className={styles.fieldset}>
       <Label htmlFor={htmlId} label={label} required={required} />
-      <div>
-        <input
-          id={htmlId}
-          type={type}
-          name={name}
-          className={inputClass}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          {...props}/>
-          {children}
-        {error && <div className={styles.error}>{error}</div>}
-      </div>
+      <input
+        id={htmlId}
+        type={type}
+        name={name}
+        className={inputClass}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        {...props}/>
+        {children}
+      {error && <div className={styles.error}>{error}</div>}
     </div>
   );
 };
