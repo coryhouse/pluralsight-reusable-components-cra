@@ -5,12 +5,8 @@ import React, { PropTypes } from 'react';
  */
 class ProgressBar extends React.Component {
   getBarColor = () => {
-    if (this.props.percent === 100) {
-      return 'green';
-    } else if (this.props.percent > 50) {
-      return 'lightgreen';
-    }
-    return 'red';
+    if (this.props.percent === 100) return 'green';
+    return this.props.percent > 50 ? 'lightgreen' : 'red';
   }
 
   render() {
