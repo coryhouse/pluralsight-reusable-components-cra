@@ -14,8 +14,8 @@ const TextInput = ({htmlId, name, label, type = "text", required = false, onChan
     <div style={{marginBottom: 16}}>
       <Label htmlFor={htmlId} label={label} required={required} />
       <input
-        type={type}
         id={htmlId}
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
