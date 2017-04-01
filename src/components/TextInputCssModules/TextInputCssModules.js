@@ -13,6 +13,7 @@ const TextInputCssModules = ({htmlId, name, label, type = "text", required = fal
       <Label htmlFor={htmlId} label={label} required={required} />
       <div>
         <input
+          id={htmlId}
           type={type}
           name={name}
           className={inputClass}
