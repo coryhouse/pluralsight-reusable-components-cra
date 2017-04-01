@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Label from '../Label';
 
 const TextInput = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  const inputStyle = {display: 'inline-block'};
+  const inputStyle = {};
   if (error && error.length > 0) {
     inputStyle.border = 'solid 1px red';
   }
@@ -11,8 +11,8 @@ const TextInput = ({htmlId, name, label, type = "text", required = false, onChan
     <div style={{marginBottom: 16}}>
       <Label htmlFor={htmlId} label={label} required={required} />
       <input
-        type={type}
         id={htmlId}
+        type={type}
         name={name}
         placeholder={placeholder}
         value={value}
