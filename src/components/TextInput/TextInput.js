@@ -5,7 +5,7 @@ import Label from 'ps-ui/Label';
  * Abstraction over text input with integrated label to enforce consistency in layout, error display, label placement, and required field marker.
  */
 const TextInput = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  const inputStyle = {display: 'inline-block'};
+  const inputStyle = {};
   if (error && error.length > 0) {
     inputStyle.border = 'solid 1px red';
   }
