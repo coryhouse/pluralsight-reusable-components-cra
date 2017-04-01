@@ -23,6 +23,7 @@ const TextInput = ({ htmlId, name, label, type = "text", required = false, onCha
     <Fieldset>
       <Label htmlFor={htmlId} label={label} required={required} />
       <Input
+        htmlId={htmlId}
         type={type}
         name={name}
         placeholder={placeholder}

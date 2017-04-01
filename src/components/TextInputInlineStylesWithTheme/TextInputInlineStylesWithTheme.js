@@ -25,6 +25,7 @@ const TextInput = ({htmlId, name, label, type = "text", required = false, onChan
     <div style={{marginBottom: defaultTheme.fieldset.marginBottom}}>
       <Label htmlFor={htmlId} label={label} required={required} />
       <input
+        htmlId={htmlId}
         type={type}
         name={name}
         placeholder={placeholder}

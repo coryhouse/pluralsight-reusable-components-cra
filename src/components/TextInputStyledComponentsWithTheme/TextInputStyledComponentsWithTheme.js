@@ -24,6 +24,7 @@ const TextInput = ({name, label, type = "text", required = false, onChange, plac
     <Fieldset>
       <Label htmlFor={htmlId} label={label} required={required} />
       <Input
+        htmlId={htmlId}
         type={type}
         name={name}
         placeholder={placeholder}
