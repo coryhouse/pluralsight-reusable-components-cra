@@ -1,6 +1,8 @@
 import React from 'react';
 import TextInputInlineStylesThemed from 'ps-ui/TextInputInlineStylesThemed';
 
+const uglyTheme = {fontColor: 'green', accentColor: 'orange', borderWidth: '5px'};
+
 /**
  * With inline styles and theme support. Note how the theme allows setting a different border color for the input, but it doesn't allow overriding the red border for error states.
  */
@@ -14,7 +16,7 @@ export default class ExampleInlineStylesThemed extends React.Component {
           name="firstname"
           onChange={() => {}}
           required
-          theme={{fontColor: 'green', accentColor: 'orange', borderWidth: '5px'}}
+          theme={uglyTheme}
         />
 
         <TextInputInlineStylesThemed
@@ -24,7 +26,7 @@ export default class ExampleInlineStylesThemed extends React.Component {
           onChange={() => {}}
           required
           error="First Name is required."
-          theme={{fontColor: 'green', accentColor: 'orange', borderWidth: '5px'}}
+          theme={uglyTheme}
         />
       </div>
     )
