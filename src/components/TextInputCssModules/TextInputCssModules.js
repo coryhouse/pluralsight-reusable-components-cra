@@ -3,11 +3,6 @@ import Label from 'ps-ui/Label';
 import styles from './textInput.css';
 
 const TextInputCssModules = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  let inputClass = '';
-  if (error && error.length > 0) {
-    inputClass+= styles.inputError;
-  }
-
   return (
     <div className={styles.fieldset}>
       <Label htmlFor={htmlId} label={label} required={required} />
@@ -15,7 +10,7 @@ const TextInputCssModules = ({htmlId, name, label, type = "text", required = fal
         id={htmlId}
         type={type}
         name={name}
-        className={inputClass}
+        className={error && styles.inputError}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

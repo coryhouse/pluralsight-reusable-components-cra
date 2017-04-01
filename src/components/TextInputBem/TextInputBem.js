@@ -7,18 +7,13 @@ import './textInput.css';
  * Using BEM to encapsulate styling.
  */
 const TextInputBem = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  let inputClass = '';
-  if (error && error.length > 0) {
-    inputClass+= 'textinput__input--state-error';
-  }
-
   return (
     <div className="textinput">
       <Label htmlFor={htmlId} label={label} required={required} />
       <input
         type={type}
         name={name}
-        className={inputClass}
+        className={error && 'textinput__input--state-error'}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
