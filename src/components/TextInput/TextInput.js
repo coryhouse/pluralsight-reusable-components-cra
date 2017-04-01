@@ -2,11 +2,6 @@ import React, {PropTypes} from 'react';
 import Label from '../Label';
 
 const TextInput = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
-  const inputStyle = {};
-  if (error && error.length > 0) {
-    inputStyle.border = 'solid 1px red';
-  }
-
   return (
     <div style={{marginBottom: 16}}>
       <Label htmlFor={htmlId} label={label} required={required} />
@@ -17,7 +12,7 @@ const TextInput = ({htmlId, name, label, type = "text", required = false, onChan
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={inputStyle}
+        style={error && {border: 'solid 1px red'}}
         {...props}/>
         {children}
       {error && <div style={{color: 'red'}}>{error}</div>}
