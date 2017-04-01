@@ -1,14 +1,15 @@
 import React from 'react';
-import TextInputInlineStylesWithTheme from 'ps-ui/TextInputInlineStylesWithTheme';
+import TextInputInlineStylesThemed from 'ps-ui/TextInputInlineStylesThemed';
 
 /**
  * With inline styles and theme support. Note how the theme allows setting a different border color for the input, but it doesn't allow overriding the red border for error states.
  */
-export default class Example extends React.Component {
+export default class ExampleInlineStylesThemed extends React.Component {
   render() {
     return (
       <div>
-        <TextInputInlineStylesWithTheme
+        <TextInputInlineStylesThemed
+          htmlId="inline-styles-themed"
           label="With no error"
           name="firstname"
           onChange={() => {}}
@@ -16,7 +17,8 @@ export default class Example extends React.Component {
           theme={{fontColor: 'green', accentColor: 'orange', borderWidth: '5px'}}
         />
 
-        <TextInputInlineStylesWithTheme
+        <TextInputInlineStylesThemed
+          htmlId="inline-styles-themed-with-error"
           label="With error"
           name="firstname"
           onChange={() => {}}

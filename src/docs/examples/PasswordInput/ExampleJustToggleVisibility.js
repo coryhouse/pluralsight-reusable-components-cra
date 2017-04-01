@@ -1,9 +1,7 @@
 import React from 'react';
 import PasswordInput from 'ps-ui/PasswordInput';
 
-/**
- * Just toggle visibility enabled
- */
+/** Just toggle visibility enabled */
 class ExampleJustToggleVisibility extends React.Component {
   constructor(props) {
     super(props);

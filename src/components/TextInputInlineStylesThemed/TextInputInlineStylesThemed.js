@@ -11,7 +11,7 @@ import defaultTheme from './defaultTheme';
  * Note that you could centralize styling variables in a js
  * file if used in multiple components.
  */
-const TextInput = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, theme={fontColor: 'black', accentColor: 'darkgray', borderWidth: '1px'}, ...props}) => {
+const TextInputInlineStylesThemed = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, theme={fontColor: 'black', accentColor: 'darkgray', borderWidth: '1px'}, ...props}) => {
   // Allow overriding the default input border color via theme.
   // But always set border color to the defaultTheme's error border (red) when there is an error.
   const inputBorderColor = (error && error.length > 0) ? defaultTheme.error.color : theme.accentColor;
@@ -39,16 +39,36 @@ const TextInput = ({htmlId, name, label, type = "text", required = false, onChan
   );
 };
 
-TextInput.propTypes = {
+TextInputInlineStylesThemed.propTypes = {
+  /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
   htmlId: PropTypes.string.isRequired,
+
+  /** Input name. Recommend setting this to match object's property so a single change handler can be used. */
   name: PropTypes.string.isRequired,
+
+  /** Input label */
   label: PropTypes.string.isRequired,
+
+  /** Input type */
   type: PropTypes.oneOf(['text', 'number', 'password']),
+
+  /** Mark label with asterisk if set to true */
   required: PropTypes.bool,
+
+  /** Function to call onChange */
   onChange: PropTypes.func.isRequired,
+
+  /** Placeholder to display when empty */
   placeholder: PropTypes.string,
-  value: PropTypes.string,
-  error: PropTypes.string
+
+  /** Value */
+  value: PropTypes.any,
+
+  /** String to display when error occurs */
+  error: PropTypes.string,
+
+  /** Child component to display next to the input */
+  children: PropTypes.node
 };
 
-export default TextInput;
+export default TextInputInlineStylesThemed;

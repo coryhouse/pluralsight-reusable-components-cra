@@ -22,7 +22,7 @@ const uglyTheme = {
 };
 
 /**
- * Button with two different themes applied
+ * TextInput with two different themes applied
  */
 const MyApp = () => {
   return (
@@ -30,15 +30,17 @@ const MyApp = () => {
       {/* All children of this component will receieve the plain theme via React's context */}
       <ThemeProvider theme={plainTheme}>
         <ThemedTextInput
+          htmlId="themed-input-plain"
           label="Text input with plain theme"
-          name="plainTheme"
+          name="plain"
           onChange={() => {}} />
       </ThemeProvider>
       {/* All children of this component will receive the ugly theme via React's context */}
       <ThemeProvider theme={uglyTheme}>
         <ThemedTextInput
+          htmlId="themed-input-ugly"
           label="Text input with ugly theme"
-          name="uglyTheme"
+          name="ugly"
           onChange={() => {}} />
       </ThemeProvider>
     </div>
