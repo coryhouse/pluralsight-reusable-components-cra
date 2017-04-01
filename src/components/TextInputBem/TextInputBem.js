@@ -15,18 +15,16 @@ const TextInputBem = ({htmlId, name, label, type = "text", required = false, onC
   return (
     <div className="textinput">
       <Label htmlFor={htmlId} label={label} required={required} />
-      <div className="field">
-        <input
-          type={type}
-          name={name}
-          className={inputClass}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          {...props}/>
-          {children}
-        {error && <div className="textinput__error">{error}</div>}
-      </div>
+      <input
+        type={type}
+        name={name}
+        className={inputClass}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        {...props}/>
+        {children}
+      {error && <div className="textinput__error">{error}</div>}
     </div>
   );
 };
