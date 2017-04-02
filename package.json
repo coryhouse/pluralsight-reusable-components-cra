@@ -2,7 +2,6 @@
   "name": "pluralsight-reusable-components-cra",
   "version": "0.1.14",
   "main": "./lib/index.js",
-  "module": "./lib/index.es.js",
   "engines": {
     "node": ">=4.0.0"
   },
@@ -124,20 +123,6 @@
     "presets": [
       "react-app"
     ]
-  },
-  "babelESBuild": {
-    "presets": [
-      "./config/pluralsight-babel-preset",
-      "stage-1",
-      "react"
-    ],
-    "env": {
-      "umd": {
-        "plugins": [
-          "transform-es2015-modules-umd"
-        ]
-      }
-    }
   },
   "eslintConfig": {
     "extends": "react-app"
