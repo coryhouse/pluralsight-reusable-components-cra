@@ -25,7 +25,7 @@ export default class Docs extends React.Component {
     return (
       <div>
         <Title render="Pluralsight UI" />
-        <Navigation components={componentData.map(component => component.name)} setPage={this.setPage}/>
+        <Navigation components={componentData.map(component => component.name)} />
         <ComponentPage component={component} />
         <div className="clear"></div>
       </div>
