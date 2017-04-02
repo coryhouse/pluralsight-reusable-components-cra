@@ -4,17 +4,17 @@ var chalk = require('chalk');
 var {parse} = require('react-docgen');
 var chokidar = require('chokidar');
 
-function getDirectories(srcpath) {
-  return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
+function getDirectories(filepath) {
+  return fs.readdirSync(filepath).filter(file => fs.statSync(path.join(filepath, file)).isDirectory())
 }
 
-function getFiles(srcpath) {
-  return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isFile())
+function getFiles(filepath) {
+  return fs.readdirSync(filepath).filter(file => fs.statSync(path.join(filepath, file)).isFile())
 }
 
-function writeFile(filename, content) {
-  fs.writeFile(path.join(__dirname, '../config', filename), content, function (err) {
-    err ? console.log(err) : console.log(chalk.green("Component data saved."));
+function writeFile(filepath, content) {
+  fs.writeFile(filepath, content, function (err) {
+    err ? console.log(chalk.red(err)) : console.log(chalk.green("Component data saved."));
   });
 }
 
@@ -22,7 +22,7 @@ function readFile(filePath) {
   return fs.readFileSync(filePath, 'utf-8');
 }
 
-function getExampleFiles(componentName) {
+function getExampleFiles(examplesPath, componentName) {
   let exampleFiles = [];
   try {
     exampleFiles = getFiles(path.join(examplesPath, componentName));
@@ -33,7 +33,7 @@ function getExampleFiles(componentName) {
 }
 
 function getExampleData(examplesPath, componentName) {
-  var examples = getExampleFiles(componentName);
+  var examples = getExampleFiles(examplesPath, componentName);
   return examples.map(file => {
     var filePath = path.join(examplesPath, componentName, file)
     var content = readFile(filePath)
@@ -48,33 +48,35 @@ function getExampleData(examplesPath, componentName) {
   });
 }
 
-function getComponentData(componentPath, examplePath, componentName) {
-  var content = readFile(path.join(componentPath, componentName, componentName + '.js'));
+function getComponentData(paths, componentName) {
+  var content = readFile(path.join(paths.components, componentName, componentName + '.js'));
   var info = parse(content);
   return {
     name: componentName,
     description: info.description,
     props: info.props,
     code: content,
-    examples: getExampleData(examplePath, componentName)
+    examples: getExampleData(paths.examples, componentName)
   }
 }
 
-function generate(componentsPath, examplesPath) {
-  var componentData = getDirectories(componentsPath).map(componentName => {
-    return getComponentData(componentsPath, examplesPath, componentName);
+function generate(paths) {
+  var componentData = getDirectories(paths.components).map(componentName => {
+    return getComponentData(paths, componentName)
   });
-
-  writeFile('componentData.js', "module.exports = " + JSON.stringify(componentData));
+  writeFile(paths.output, "module.exports = " + JSON.stringify(componentData));
 }
 
-var examplesPath = path.join(__dirname, '../src', 'docs', 'examples');
-var componentsPath = path.join(__dirname, '../src', 'components');
+var paths = {
+  examples: path.join(__dirname, '../src', 'docs', 'examples'),
+  components: path.join(__dirname, '../src', 'components'),
+  output: path.join(__dirname, '../config', 'componentData.js')
+};
 
 // Generate component metadata
-generate(componentsPath, examplesPath);
+generate(paths);
 
-// Regenerate component metadata anytime components or examples change.
-chokidar.watch([examplesPath, componentsPath]).on('change', (event, path) => {
-  generate(componentsPath, examplesPath);
+// Regenerate component metadata when components or examples change.
+chokidar.watch([paths.examples, paths.components]).on('change', (event, path) => {
+  generate(paths);
 });
