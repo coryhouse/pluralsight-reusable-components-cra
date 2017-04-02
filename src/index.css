@@ -4,7 +4,7 @@ body {
   color: #666666;
 }
 
-a:visited {
+a, a:visited {
   color: #666666;
 }
 
@@ -24,7 +24,7 @@ table {
   border-collapse:collapse;
 }
 
-/* Documentation site component styles, using BEM */
+/* Documentation site component styles */
 .example {
   border: solid 1px #d3d3d3;
   padding: 16px;
