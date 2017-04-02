@@ -5,7 +5,7 @@ import javascript from 'highlight.js/lib/languages/javascript'
 // This way is easy, but adds 170K gzipped to bundle since all langs are included.
 // import Highlight from 'react-highlight';
 
-class Highlight extends React.Component {
+class CodeExample extends React.Component {
   componentDidMount() {
     hljs.registerLanguage('javascript', javascript);
     hljs.highlightBlock(this.element);
@@ -22,8 +22,8 @@ class Highlight extends React.Component {
   }
 }
 
-Highlight.propTypes = {
+CodeExample.propTypes = {
   children: PropTypes.string.isRequired
 }
 
-export default Highlight;
+export default CodeExample;

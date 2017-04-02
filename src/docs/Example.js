@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import Highlight from './Highlight';
+import CodeExample from './CodeExample';
 
 // This way is easy, but adds 214K gzipped to bundle since all langs are included.
 // import Highlight from 'react-highlight';
@@ -35,7 +35,7 @@ class Example extends React.Component {
           </a>
         </p>
 
-        {showCode && <Highlight>{code}</Highlight>}
+        {showCode && <CodeExample>{code}</CodeExample>}
       </div>
     )
   }
