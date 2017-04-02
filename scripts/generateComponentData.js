@@ -1,7 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 var chalk = require('chalk');
-var {parse} = require('react-docgen')
+var {parse} = require('react-docgen');
+var chokidar = require('chokidar');
 
 function getDirectories(srcpath) {
   return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
@@ -12,7 +13,7 @@ function getFiles(srcpath) {
 }
 
 function writeFile(filename, content) {
-  fs.writeFile(path.join(__dirname, '../src', 'docs', filename), content, function (err) {
+  fs.writeFile(path.join(__dirname, '../config', filename), content, function (err) {
     err ? console.log(err) : console.log(chalk.green("Component data saved."));
   });
 }
@@ -32,13 +33,14 @@ function getExampleFiles(componentName) {
 }
 
 function getExampleData(examplesPath, componentName) {
-  let examples = getExampleFiles(componentName);
+  var examples = getExampleFiles(componentName);
   return examples.map(file => {
-    let filePath = path.join(examplesPath, componentName, file)
-    let content = readFile(filePath)
-    let info = parse(content);
+    var filePath = path.join(examplesPath, componentName, file)
+    var content = readFile(filePath)
+    var info = parse(content);
     return {
-      // Remove the .js extension. Assume the component's name matches the filename.
+      // By convention, component name should match the filename.
+      // So remove the .js extension to get the component name.
       name: file.slice(0, -3),
       description: info.description,
       code: content
@@ -47,8 +49,8 @@ function getExampleData(examplesPath, componentName) {
 }
 
 function getComponentData(componentPath, examplePath, componentName) {
-  const content = readFile(path.join(componentPath, componentName, componentName + '.js'));
-  let info = parse(content);
+  var content = readFile(path.join(componentPath, componentName, componentName + '.js'));
+  var info = parse(content);
   return {
     name: componentName,
     description: info.description,
@@ -59,13 +61,20 @@ function getComponentData(componentPath, examplePath, componentName) {
 }
 
 function generate(componentsPath, examplesPath) {
-  const componentData = getDirectories(componentsPath).map(componentName => {
+  var componentData = getDirectories(componentsPath).map(componentName => {
     return getComponentData(componentsPath, examplesPath, componentName);
   });
 
-  writeFile('componentData.js', "/* eslint-disable */\n export default " + JSON.stringify(componentData));
+  writeFile('componentData.js', "module.exports = " + JSON.stringify(componentData));
 }
 
-const examplesPath = path.join(__dirname, '../src', 'docs', 'examples');
-const componentsPath = path.join(__dirname, '../src', 'components');
+var examplesPath = path.join(__dirname, '../src', 'docs', 'examples');
+var componentsPath = path.join(__dirname, '../src', 'components');
+
+// Generate component metadata
 generate(componentsPath, examplesPath);
+
+// Regenerate component metadata anytime components or examples change.
+chokidar.watch([examplesPath, componentsPath]).on('change', (event, path) => {
+  generate(componentsPath, examplesPath);
+});
