@@ -11,7 +11,6 @@ const TextInputStyledComponents = ({ htmlId, name, label, type = "text", require
   `
 
   const Input = styled.input`
-  debugger;
     border: ${error => error.length > 0 ? 'solid 1px red;' : null};
     display: block;
   `;
