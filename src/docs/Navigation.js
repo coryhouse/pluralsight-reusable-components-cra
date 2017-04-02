@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 
-const Navigation = ({components, setPage}) => {
+const Navigation = ({components}) => {
   return (
     <ul className="navigation">
       {
-        components.map( (name, index) => {
+        components.map( name => {
           return (
             <li key={name}>
               <a href={`#${name}`}>{name}</a>
@@ -17,8 +17,7 @@ const Navigation = ({components, setPage}) => {
 }
 
 React.propTypes = {
-  components: PropTypes.array.isRequired,
-  setPage: PropTypes.func.isRequired
+  components: PropTypes.array.isRequired
 };
 
 export default Navigation;
