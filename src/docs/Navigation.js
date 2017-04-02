@@ -7,9 +7,7 @@ const Navigation = ({components, setPage}) => {
         components.map( (name, index) => {
           return (
             <li key={name}>
-              <a href="#" onClick={event => setPage(event, index)}>
-                {name}
-              </a>
+              <a href={`#${name}`}>{name}</a>
             </li>
           )
         })

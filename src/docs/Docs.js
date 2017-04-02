@@ -8,25 +8,25 @@ export default class Docs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Default to the first component in the array.
-      currentComponent: componentData[0]
+      route: window.location.hash.substr(1)
     };
   }
 
-  setPage = (event, index) => {
-    event.preventDefault();
-    this.setState({currentComponent: componentData[index]});
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({route: window.location.hash.substr(1)})
+    })
   }
 
   render() {
-    const {currentComponent} = this.state;
-    const components = componentData.map( component => component.name);
+    const {route} = this.state;
+    const component = route ? componentData.find( component => component.name === route) : componentData[0];
 
     return (
       <div>
         <Title render="Pluralsight UI" />
-        <Navigation components={components} setPage={this.setPage}/>
-        <ComponentPage component={currentComponent} />
+        <Navigation components={componentData.map(component => component.name)} setPage={this.setPage}/>
+        <ComponentPage component={component} />
         <div className="clear"></div>
       </div>
     )
