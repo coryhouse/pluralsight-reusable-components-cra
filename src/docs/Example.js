@@ -10,7 +10,7 @@ class Example extends React.Component {
     this.state = { showCode: false };
   }
 
-  toggleCode(event) {
+  toggleCode = event => {
     event.preventDefault();
     this.setState(prevState => {
       return {showCode: !prevState.showCode};
@@ -19,10 +19,9 @@ class Example extends React.Component {
 
   render() {
     const {showCode} = this.state;
-    const {componentName} = this.props;
     const {code, description, name} = this.props.example;
     // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
-    const ExampleComponent = require(`./examples/${componentName}/${name}`).default;
+    const ExampleComponent = require(`./examples/${this.props.componentName}/${name}`).default;
     return (
       <div className="example">
         {description && <h4>{description}</h4> }
@@ -30,7 +29,7 @@ class Example extends React.Component {
         <ExampleComponent />
 
         <p>
-          <a href="#" onClick={this.toggleCode.bind(this)}>
+          <a href="#" onClick={this.toggleCode}>
             {showCode ? "Hide" : "Show"} Code
           </a>
         </p>
