@@ -7,7 +7,7 @@ import {shallow} from 'enzyme';
 import PasswordInput from './PasswordInput';
 
 // Behavioral test
-it('Toggles input type when show/hide password clicked', () => {
+test('toggles input type when show/hide password clicked', () => {
   const wrapper = shallow(<PasswordInput
     htmlId="test"
     name="test"
@@ -26,27 +26,7 @@ it('Toggles input type when show/hide password clicked', () => {
   expect(passwordInput).toHaveLength(1);
 });
 
-test('should display tips with bad password', () => {
-  const tree = renderer.create(<PasswordInput
-    htmlId="test"
-    name="test"
-    onChange={() => {}}
-    showTips={true}
-    value="a" />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('should show no tips with good password', () => {
-  const tree = renderer.create(<PasswordInput
-    htmlId="test"
-    name="test"
-    onChange={() => {}}
-    showTips={true}
-    value="Uisi38#8iad" />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('should hide password quality by default', () => {
+test('hides password quality by default', () => {
   const tree = renderer.create(<PasswordInput
     htmlId="test"
     name="test"
@@ -55,7 +35,7 @@ test('should hide password quality by default', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('should show password quality when enabled and a password is entered', () => {
+test('shows password quality when enabled and a password is entered', () => {
   const tree = renderer.create(<PasswordInput
     htmlId="test"
     name="test"
@@ -65,7 +45,7 @@ test('should show password quality when enabled and a password is entered', () =
   expect(tree).toMatchSnapshot();
 });
 
-test('should hide password quality when enabled but no password is entered', () => {
+test('hides password quality when enabled but no password is entered', () => {
   const tree = renderer.create(<PasswordInput
     htmlId="test"
     name="test"
