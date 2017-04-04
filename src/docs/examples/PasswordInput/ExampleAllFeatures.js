@@ -22,7 +22,7 @@ class ExampleAllFeatures extends React.Component {
         <PasswordInput
           htmlId="password-input-example-all-features"
           name="password"
-          onChange={(event) => this.setState({ password: event.target.value })}
+          onChange={ event => this.setState({ password: event.target.value })}
           value={this.state.password}
           minLength={8}
           placeholder="Enter password"
