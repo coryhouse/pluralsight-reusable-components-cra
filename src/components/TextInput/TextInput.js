@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import Label from 'ps-ui/Label';
+import Label from '../Label';
 
 /** Text input with integrated label to enforce consistency in layout, error display, label placement, and required field marker. */
 const TextInput = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {

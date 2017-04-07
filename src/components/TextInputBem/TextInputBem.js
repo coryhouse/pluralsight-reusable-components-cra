@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import Label from 'ps-ui/Label';
+import Label from '../Label';
 import './textInput.css';
 
 /**
