@@ -3,7 +3,7 @@ import Label from '../Label';
 import styles from './textInput.css';
 
 /** TextInput using CSS Modules */
-const TextInputCssModules = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+function TextInputCssModules ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) {
   return (
     <div className={styles.fieldset}>
       <Label htmlFor={htmlId} label={label} required={required} />

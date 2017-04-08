@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 /** Label with required field display, htmlFor, and block styling */
-const Label = ({htmlFor, label, required}) => {
+function Label({htmlFor, label, required}) {
   return (
     <label style={{display: 'block'}} htmlFor={htmlFor}>
       {label} { required && <span style={{color: 'red'}}> *</span> }

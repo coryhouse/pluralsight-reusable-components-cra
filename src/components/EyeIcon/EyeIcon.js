@@ -1,7 +1,7 @@
 import React from 'react';
 
 /** SVG Eye Icon */
-const EyeIcon = () => {
+function EyeIcon() {
   // Attribution: Fabián Alexis at https://commons.wikimedia.org/wiki/File:Antu_view-preview.svg
   return (
     <svg width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">

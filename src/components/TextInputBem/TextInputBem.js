@@ -6,7 +6,7 @@ import './textInput.css';
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
  * Using BEM to encapsulate styling.
  */
-const TextInputBem = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) => {
+function TextInputBem({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) {
   return (
     <div className="textinput">
       <Label htmlFor={htmlId} label={label} required={required} />

@@ -11,7 +11,7 @@ import defaultTheme from './defaultTheme';
  * Note that you could centralize styling variables in a js
  * file if used in multiple components.
  */
-const TextInputInlineStylesThemed = ({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, theme={fontColor: 'black', accentColor: 'darkgray', borderWidth: '1px'}, ...props}) => {
+function TextInputInlineStylesThemed({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, theme={fontColor: 'black', accentColor: 'darkgray', borderWidth: '1px'}, ...props}) {
   // Allow overriding the default input border color via theme.
   // But always set border color to the defaultTheme's error border (red) when there is an error.
   const inputBorderColor = (error && error.length > 0) ? defaultTheme.error.color : theme.accentColor;

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 /**
  * TextInput using styled-components
  */
-const TextInputStyledComponents = ({ htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props }) => {
+function TextInputStyledComponents({ htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props }) {
   const Error = styled.div`
     color: red;
   `
