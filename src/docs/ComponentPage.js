@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Example from './Example';
 import Props from './Props';
 import Title from 'react-title-component';

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import CodeExample from './CodeExample';
 
 // This way is easy, but adds 214K gzipped to bundle since all langs are included.
