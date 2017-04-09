@@ -17,7 +17,7 @@ const Navigation = ({components}) => {
   )
 }
 
-React.propTypes = {
+Navigation.propTypes = {
   components: PropTypes.array.isRequired
 };
 
