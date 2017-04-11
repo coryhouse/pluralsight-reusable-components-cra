@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from 'react-title-component';
+import Title from './Title';
 import Navigation from './Navigation';
 import ComponentPage from './ComponentPage';
 import componentData from '../../config/componentData';
