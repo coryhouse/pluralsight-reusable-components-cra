@@ -1,15 +1,19 @@
 var fs = require('fs');
 var path = require('path');
 var chalk = require('chalk');
-var {parse} = require('react-docgen');
+var parse = require('react-docgen').parse;
 var chokidar = require('chokidar');
 
 function getDirectories(filepath) {
-  return fs.readdirSync(filepath).filter(file => fs.statSync(path.join(filepath, file)).isDirectory())
+  return fs.readdirSync(filepath).filter(function(file) {
+    return fs.statSync(path.join(filepath, file)).isDirectory();
+  });
 }
 
 function getFiles(filepath) {
-  return fs.readdirSync(filepath).filter(file => fs.statSync(path.join(filepath, file)).isFile())
+  return fs.readdirSync(filepath).filter(function(file) {
+    return fs.statSync(path.join(filepath, file)).isFile();
+  });
 }
 
 function writeFile(filepath, content) {
@@ -23,7 +27,7 @@ function readFile(filePath) {
 }
 
 function getExampleFiles(examplesPath, componentName) {
-  let exampleFiles = [];
+  var exampleFiles = [];
   try {
     exampleFiles = getFiles(path.join(examplesPath, componentName));
   } catch(error) {
@@ -34,7 +38,7 @@ function getExampleFiles(examplesPath, componentName) {
 
 function getExampleData(examplesPath, componentName) {
   var examples = getExampleFiles(examplesPath, componentName);
-  return examples.map(file => {
+  return examples.map(function(file) {
     var filePath = path.join(examplesPath, componentName, file)
     var content = readFile(filePath)
     var info = parse(content);
@@ -61,7 +65,7 @@ function getComponentData(paths, componentName) {
 }
 
 function generate(paths) {
-  var componentData = getDirectories(paths.components).map(componentName => {
+  var componentData = getDirectories(paths.components).map(function(componentName) {
     return getComponentData(paths, componentName)
   });
   writeFile(paths.output, "module.exports = " + JSON.stringify(componentData));
@@ -77,6 +81,6 @@ var paths = {
 generate(paths);
 
 // Regenerate component metadata when components or examples change.
-chokidar.watch([paths.examples, paths.components]).on('change', (event, path) => {
+chokidar.watch([paths.examples, paths.components]).on('change', function(event, path) {
   generate(paths);
 });
