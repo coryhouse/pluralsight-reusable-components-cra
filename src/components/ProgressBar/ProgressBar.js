@@ -4,10 +4,6 @@ import {getWidthAsPercentOfTotalWidth} from '../../utils/percentUtils';
 
 /** Display progress between 0 and 100 percent on colorful horizontal bar. */
 class ProgressBar extends React.Component {
-  static defaultProps = {
-    height: 5
-  };
-
   getColor = (percent) => {
     if (this.props.percent === 100) return 'green';
     return this.props.percent > 50 ? 'lightgreen' : 'red';
@@ -41,6 +37,10 @@ ProgressBar.propTypes = {
 
   /** Bar height */
   height: PropTypes.number
+};
+
+ProgressBar.defaultProps = {
+  height: 5
 };
 
 export default ProgressBar;
