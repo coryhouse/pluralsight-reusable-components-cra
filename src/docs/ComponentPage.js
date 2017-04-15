@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Example from './Example';
 import Props from './Props';
-import Title from './Title';
 
 const ComponentPage = ({component}) => {
   const {name, description, props, examples} = component;
 
   return (
     <div className="componentpage">
-      <Title render={previousTitle => `${previousTitle} - ${name}`} />
       <h2>{name}</h2>
       <p>{description}</p>
 

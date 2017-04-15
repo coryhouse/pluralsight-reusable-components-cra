@@ -1,5 +1,4 @@
 import React from 'react';
-import Title from './Title';
 import Navigation from './Navigation';
 import ComponentPage from './ComponentPage';
 import componentData from '../../config/componentData';
@@ -24,7 +23,6 @@ export default class Docs extends React.Component {
 
     return (
       <div>
-        <Title render="Pluralsight UI" />
         <Navigation components={componentData.map(component => component.name)} />
         <ComponentPage component={component} />
       </div>
