@@ -5,11 +5,6 @@ import PasswordInput from '../PasswordInput';
 
 /** Registration form with built-in validation. */
 class RegistrationForm extends React.Component {
-  static defaultProps = {
-    confirmationMessage: "Thanks for registering!",
-    minPasswordLength: 8
-  };
-
   constructor(props) {
     super(props);
 
@@ -103,5 +98,10 @@ RegistrationForm.propTypes = {
   /** Minimum password length */
   minPasswordLength: PropTypes.number
 }
+
+RegistrationForm.defaultProps = {
+  confirmationMessage: "Thanks for registering!",
+  minPasswordLength: 8
+};
 
 export default RegistrationForm;
