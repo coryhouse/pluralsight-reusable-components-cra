@@ -6,12 +6,6 @@ import TextInput from '../TextInput';
 
 /** Password input with integrated label, quality tips, and show password toggle. */
 class PasswordInput extends React.Component {
-  static defaultProps = {
-    maxLength: 50,
-    showVisibilityToggle: false,
-    label: 'Password'
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -89,6 +83,12 @@ PasswordInput.propTypes = {
 
   /** Validation error to display */
   error: PropTypes.string
+};
+
+PasswordInput.defaultProps = {
+  maxLength: 50,
+  showVisibilityToggle: false,
+  label: 'Password'
 };
 
 export default PasswordInput;
