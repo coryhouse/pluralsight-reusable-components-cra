@@ -40,7 +40,7 @@
     "css-loader": "0.26.1",
     "detect-port": "1.1.0",
     "dotenv": "2.0.0",
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.2",
     "eslint": "3.16.1",
     "eslint-config-react-app": "^0.6.2",
     "eslint-loader": "1.6.0",
@@ -61,10 +61,10 @@
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
-    "react-addons-test-utils": "^15.4.2",
+    "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^0.5.2",
     "react-docgen": "^2.13.0",
-    "react-test-renderer": "^15.4.2",
+    "react-test-renderer": "^15.4.4",
     "react-title-component": "^1.0.1",
     "rimraf": "^2.6.1",
     "style-loader": "0.13.1",
@@ -76,8 +76,8 @@
   },
   "dependencies": {
     "prop-types": "^15.5.3",
-    "react": "^15.5.2",
-    "react-dom": "^15.5.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "styled-components": "^1.4.4"
   },
   "peerDependencies": {
