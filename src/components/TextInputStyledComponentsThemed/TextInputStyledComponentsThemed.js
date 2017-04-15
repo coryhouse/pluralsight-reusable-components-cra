@@ -13,7 +13,7 @@ function TextInputStyledComponentsThemed({name, label, type = "text", required =
   `
 
   const Input = styled.input`
-    border: ${error => error.length > 0 ? 'solid 1px red' : null};
+    border: ${error => error ? 'solid 1px red' : null};
     display: block;
   `;
 
@@ -67,7 +67,10 @@ TextInputStyledComponentsThemed.propTypes = {
   error: PropTypes.string,
 
   /** Child component to display next to the input */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+  /** Theme */
+  theme: PropTypes.object
 };
 
 export default TextInputStyledComponentsThemed;

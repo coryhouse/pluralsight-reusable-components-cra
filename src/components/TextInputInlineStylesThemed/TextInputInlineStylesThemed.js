@@ -69,7 +69,10 @@ TextInputInlineStylesThemed.propTypes = {
   error: PropTypes.string,
 
   /** Child component to display next to the input */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+  /** Theme */
+  theme: PropTypes.object
 };
 
 export default TextInputInlineStylesThemed;
