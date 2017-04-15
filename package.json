@@ -63,7 +63,7 @@
     "promise": "7.1.1",
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^0.5.2",
-    "react-docgen": "^2.13.0",
+    "react-docgen": "^2.14.0",
     "react-test-renderer": "^15.4.4",
     "react-title-component": "^1.0.1",
     "rimraf": "^2.6.1",
