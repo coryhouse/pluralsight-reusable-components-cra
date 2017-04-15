@@ -12,8 +12,10 @@ function TextInputStyledComponentsThemed({name, label, type = "text", required =
     color: red;
   `
 
+  const isError = !!error;
+
   const Input = styled.input`
-    border: ${error => error ? 'solid 1px red' : null};
+    border: ${isError && 'solid 1px red'};
     display: block;
   `;
 
