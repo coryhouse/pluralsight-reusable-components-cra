@@ -19,7 +19,7 @@ class ProgressBar extends React.Component {
   render() {
     const {percent, width, height} = this.props;
     return (
-      <div style={{border: 'solid 1px lightgray', width: width}}>
+      <div style={{border: 'solid 1px lightgray', width}}>
         <div style={{
           width: this.getProgressWidth(width, percent),
           height,
