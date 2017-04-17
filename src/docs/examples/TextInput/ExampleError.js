@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from 'ps-ui/TextInput';
 
 /** Required TextBox with error */
-export default class ExampleOptional extends React.Component {
+export default class ExampleError extends React.Component {
   render() {
     return (
       <TextInput
