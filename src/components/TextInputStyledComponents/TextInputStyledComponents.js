@@ -10,10 +10,9 @@ function TextInputStyledComponents({ htmlId, name, label, type = "text", require
   const Error = styled.div`
     color: red;
   `
-  const isError = !!error;
 
   const Input = styled.input`
-    border: ${isError && 'solid 1px red'};
+    border: ${error && 'solid 1px red'};
     display: block;
   `;
 
