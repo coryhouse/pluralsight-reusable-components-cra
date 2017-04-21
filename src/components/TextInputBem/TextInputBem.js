@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Label from '../Label';
-import './textInput.css';
 
 /**
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
