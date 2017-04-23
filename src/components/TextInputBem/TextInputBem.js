@@ -6,7 +6,7 @@ import Label from '../Label';
  * Abstraction over text input to enforce consistency in validation, labels, and required field marker.
  * Using BEM to encapsulate styling.
  */
-function TextInputBem({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) {
+function TextInputBEM({htmlId, name, label, type = "text", required = false, onChange, placeholder, value, error, children, ...props}) {
   return (
     <div className="textinput">
       <Label htmlFor={htmlId} label={label} required={required} />
@@ -25,7 +25,7 @@ function TextInputBem({htmlId, name, label, type = "text", required = false, onC
   );
 };
 
-TextInputBem.propTypes = {
+TextInputBEM.propTypes = {
   /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
   htmlId: PropTypes.string.isRequired,
 
@@ -57,4 +57,4 @@ TextInputBem.propTypes = {
   children: PropTypes.node
 };
 
-export default TextInputBem;
+export default TextInputBEM;

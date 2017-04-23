@@ -1,11 +1,11 @@
 import React from 'react';
-import TextInputBem from 'ps-ui/TextInputBem';
+import TextInputBEM from 'ps-ui/TextInputBEM';
 
 /** With error */
 export default class ExampleError extends React.Component {
   render() {
     return (
-      <TextInputBem
+      <TextInputBEM
         htmlId="example-error"
         label="First Name"
         name="firstname"
