@@ -1,5 +1,5 @@
 import React from 'react';
-import RegistrationForm from 'ps-react/RegistrationForm';
+import RegistrationForm from 'ps-ui/RegistrationForm';
 
 export default class ExampleRegistrationForm extends React.Component {
   onSubmit = (user) => {
