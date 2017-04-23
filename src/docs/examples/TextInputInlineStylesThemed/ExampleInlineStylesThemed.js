@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInputInlineStylesThemed from 'ps-ui/TextInputInlineStylesThemed';
+import TextInputInlineStylesThemed from 'ps-react/TextInputInlineStylesThemed';
 
 const uglyTheme = {fontColor: 'green', accentColor: 'orange', borderWidth: '5px'};
 

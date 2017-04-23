@@ -123,7 +123,7 @@
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^ps-ui(.*)$": "<rootDir>/src/components$1"
+      "^ps-react(.*)$": "<rootDir>/src/components$1"
     }
   },
   "babel": {

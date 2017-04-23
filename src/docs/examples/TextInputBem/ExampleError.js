@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInputBEM from 'ps-ui/TextInputBEM';
+import TextInputBEM from 'ps-react/TextInputBEM';
 
 /** With error */
 export default class ExampleError extends React.Component {

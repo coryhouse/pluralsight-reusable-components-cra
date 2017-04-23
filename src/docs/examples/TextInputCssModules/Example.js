@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInputCssModules from 'ps-ui/TextInputCssModules';
+import TextInputCssModules from 'ps-react/TextInputCssModules';
 
 /**
  * With CSS Modules

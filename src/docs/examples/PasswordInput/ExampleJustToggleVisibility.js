@@ -1,5 +1,5 @@
 import React from 'react';
-import PasswordInput from 'ps-ui/PasswordInput';
+import PasswordInput from 'ps-react/PasswordInput';
 
 /** Just toggle visibility enabled */
 class ExampleJustToggleVisibility extends React.Component {

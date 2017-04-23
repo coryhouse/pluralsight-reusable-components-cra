@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import TextInput from 'ps-ui/TextInput';
+import TextInput from 'ps-react/TextInput';
 
 const ThemedTextInput = styled(TextInput)`
   color: ${props => props.theme.fontColor};

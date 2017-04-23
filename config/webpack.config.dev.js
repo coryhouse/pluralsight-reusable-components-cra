@@ -78,8 +78,8 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-       // Keep imports from docs to components short. ps-ui requires will point to /src/components instead of node_modules
-      'ps-ui': path.resolve(__dirname, '../src/components')
+       // Keep imports from docs to components short. ps-react requires will point to /src/components instead of node_modules
+      'ps-react': path.resolve(__dirname, '../src/components')
     }
   },
 
