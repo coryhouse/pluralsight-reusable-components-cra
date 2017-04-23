@@ -65,10 +65,15 @@ function getComponentData(paths, componentName) {
 }
 
 function generate(paths) {
+  var errors = [];
   var componentData = getDirectories(paths.components).map(function(componentName) {
-    return getComponentData(paths, componentName)
+    try {
+      return getComponentData(paths, componentName)
+    } catch(error) {
+      errors.push('An error occurred while attempting to generate metadata for ' + componentName + '. ' + error);
+    }
   });
-  writeFile(paths.output, "module.exports = " + JSON.stringify(componentData));
+  writeFile(paths.output, "module.exports = " + JSON.stringify(errors.length ? errors : componentData));
 }
 
 var paths = {
