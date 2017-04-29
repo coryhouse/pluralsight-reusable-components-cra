@@ -27,7 +27,7 @@ class PasswordInput extends React.Component {
     return (
       <TextInput
         htmlId={htmlId}
-        label={label || 'Password'}
+        label={label}
         placeholder={placeholder}
         type={showPassword ? 'text' : 'password'}
         onChange={onChange}
