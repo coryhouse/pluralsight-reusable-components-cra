@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {getWidthAsPercentOfTotalWidth} from '../../utils/percentUtils';
+// import {getWidthAsPercentOfTotalWidth} from '../../utils/percentUtils';
 
 /** Display progress between 0 and 100 percent on colorful horizontal bar. */
 class ProgressBar extends React.Component {
@@ -10,9 +10,9 @@ class ProgressBar extends React.Component {
   }
 
   // Show this when using Enzyme to unit test func
-  // getWidthAsPercentOfTotalWidth = () => {
-  //   return parseInt(this.props.width * (this.props.percent / 100), 10);
-  // }
+  getWidthAsPercentOfTotalWidth = () => {
+    return parseInt(this.props.width * (this.props.percent / 100), 10);
+  }
 
   render() {
     const {percent, width, height} = this.props;
