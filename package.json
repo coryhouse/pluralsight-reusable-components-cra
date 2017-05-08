@@ -1,6 +1,6 @@
 {
   "name": "pluralsight-reusable-components-cra-build-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/index.js",
   "private": true,
   "engines": {
