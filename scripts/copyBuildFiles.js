@@ -13,7 +13,7 @@ Promise.all(
 .then(() => createPackageFile());
 
 function copyFile(file) {
-  const libPath = resolveLibPath(file);
+  const libPath = resolveBuildPath(file);
   return new Promise((resolve) => {
     fse.copy(
       file,
@@ -27,7 +27,7 @@ function copyFile(file) {
   .then(() => console.log(`Copied ${file} to ${libPath}`));
 }
 
-function resolveLibPath(file) {
+function resolveBuildPath(file) {
   return path.resolve(__dirname, '../lib/', path.basename(file));
 }
 
@@ -57,7 +57,7 @@ function createPackageFile() {
     } = packageData;
 
     // Note that I'm setting the name here
-    // Note that I should also leave the private setting in canonical package.json
+    // Note that I should also leave the private setting in template package.json
     // to avoid accidentally publishing from there, and change the name
     // to ps-react-build, to mimic material-ui.
     const minimalPackage = {
@@ -72,7 +72,7 @@ function createPackageFile() {
       bugs,
       homepage,
       peerDependencies,
-      dependencies,
+      dependencies
     };
 
     return new Promise((resolve) => {

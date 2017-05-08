@@ -1,7 +1,8 @@
 {
-  "name": "pluralsight-reusable-components-cra",
+  "name": "pluralsight-reusable-components-cra-build-template",
   "version": "0.1.21",
   "main": "./lib/index.js",
+  "private": true,
   "engines": {
     "node": ">=4.0.0"
   },
@@ -95,8 +96,8 @@
     "predeploy:docs": "npm run build:docs",
     "deploy:docs": "gh-pages -d build",
     "prebuild:lib": "rimraf lib",
-    "build:lib": "npm-run-all build:commonjs build:css",
-    "build:copy-files": "node scripts/copyFiles.js",
+    "build:lib": "npm-run-all build:commonjs build:css build:copy-files",
+    "build:copy-files": "node scripts/copyBuildFiles.js",
     "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
     "build:css": "cpx \"./src/components/**/*.css\" ./lib",
     "prepublish": "npm run build:lib",
